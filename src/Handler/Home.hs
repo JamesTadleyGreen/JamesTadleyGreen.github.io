@@ -10,7 +10,12 @@ import Import
 import Yesod.Form.Bootstrap3 (BootstrapFormLayout (..), renderBootstrap3)
 import Yesod.Markdown (markdownToHtmlTrusted, markdownToHtml, markdownFromFile, markdownToHtmlWithExtensions, Markdown)
 import Text.Pandoc.Extensions (githubMarkdownExtensions)
+import Text.Pandoc.Highlighting (Style, breezeDark, styleToCss)
 import Text.Julius (RawJS (..))
+
+
+pandocCodeStyle :: Style
+pandocCodeStyle = breezeDark
 
 
 data Date =
