@@ -9,3 +9,5 @@
 / HomeR GET
 
 /page1 Page1R GET
+
+/blog/#FilePath BlogR GET

@@ -69,6 +69,8 @@ library
     , yesod-core ==1.6.*
     , yesod-form >=1.6 && <1.8
     , yesod-static ==1.6.*
+    , yesod-markdown == 0.12.6.*
+    , pandoc == 2.19.2
   default-language: Haskell2010
   if (flag(dev)) || (flag(library-only))
     ghc-options: -Wall -fwarn-tabs -O0
@@ -121,6 +123,8 @@ executable yesod-demo
     , yesod-demo
     , yesod-form >=1.6 && <1.8
     , yesod-static ==1.6.*
+    , yesod-markdown == 0.12.*
+    , pandoc == 2.19.2
   default-language: Haskell2010
   if flag(library-only)
     buildable: False
