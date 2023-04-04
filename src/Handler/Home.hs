@@ -7,26 +7,13 @@
 module Handler.Home where
 
 import Import
-import Yesod.Form.Bootstrap3 (BootstrapFormLayout (..), renderBootstrap3)
-import Yesod.Markdown (markdownToHtmlTrusted, markdownToHtml, markdownFromFile, markdownToHtmlWithExtensions, Markdown)
-import Text.Pandoc.Extensions (githubMarkdownExtensions)
-import Text.Pandoc.Highlighting (Style, breezeDark, styleToCss)
-import Text.Julius (RawJS (..))
+import Text.Blaze.Html (preEscapedToHtml)
+import qualified CMark as C
+import qualified Data.Text.IO as D
 
-
-pandocCodeStyle :: Style
-pandocCodeStyle = breezeDark
-
-
-data Date =
-    Date {
-        year   :: Int,
-        month  :: Int,
-        day    :: Int
-    }
-    deriving (Eq,Ord,Typeable)
-
+menuItems :: [(Route App, String)]
 menuItems = [(HomeR, "Home"), (Page1R, "Page")]
+
 
 getHomeR :: Handler Html
 getHomeR = do
@@ -41,10 +28,15 @@ getPage1R =  defaultLayout [whamlet|Hello World!|]
 getMarkdownFile :: String -> FilePath
 getMarkdownFile title = "./markdown/" ++ title ++ ".md"
 
+markdownToHtml :: Text -> Text
+markdownToHtml m = C.commonmarkToHtml [C.optUnsafe] m
+
 getBlogR :: String -> Handler Html
 getBlogR title = do
-    content <- liftIO $ fmap (markdownToHtmlWithExtensions githubMarkdownExtensions)
-        $ markdownFromFile $ getMarkdownFile title
-    case content of
-        Left _ -> defaultLayout $  [whamlet|<p>error</p>|]
-        Right html -> defaultLayout $ [whamlet|<div class="content">#{html}</div>|]
+    markdown <- liftIO $ D.readFile $ getMarkdownFile title
+    let html = markdownToHtml markdown
+    defaultLayout $ do
+        setTitle "Title"
+        addScript $ StaticR js_highlight_highlight_min_js
+        addStylesheet $ StaticR js_highlight_styles_tokyo_night_dark_min_css
+        toWidget $ preEscapedToHtml html

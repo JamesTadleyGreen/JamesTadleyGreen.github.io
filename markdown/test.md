@@ -21,10 +21,18 @@ There are a couple of basic resources I’m using to have a first stab at the pr
 * [This incredible video](https://www.youtube.com/watch?v=gsZiJeaMO48) explaining how modern CGI and ray tracing works. The implementation of any of this will be post the initial analysis.
 
 ---
+<img src=https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Richard_Gerstl_-_Selbstbildnis%2C_lachend_-_4035_-_%C3%96sterreichische_Galerie_Belvedere.jpg/1280px-Richard_Gerstl_-_Selbstbildnis%2C_lachend_-_4035_-_%C3%96sterreichische_Galerie_Belvedere.jpg class=markdown-image>
 
 ## Vectors
 
 Let's jump into some code.
+
+
+```python
+def square(x: int)-> int:
+    return x**2
+```
+
 
 ```haskell
 type Vector3 = (Float, Float, Float)
@@ -100,3 +108,6 @@ Note the `position_at_time` function assumes no acceleration (allowed as we're w
 ## Conclusion
 
 The next steps are to start looking into colours, I have something substantially different intended for this. So we'll cut this post here for the time being.
+
+
+

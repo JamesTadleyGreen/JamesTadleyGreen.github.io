@@ -71,3 +71,21 @@
 #message {
     margin-bottom: 40px;
 }
+
+body {
+  color: lightgrey;
+  background-color: #34364c;
+}
+
+pre, code {
+    background-color: #1a1b26;
+    color: #9aa5ce;
+}
+
+.markdown-image {
+  display: block;
+  margin: auto;
+  width: 60%;
+  border: 1px solid white;
+  border-radius: 5%;
+}
