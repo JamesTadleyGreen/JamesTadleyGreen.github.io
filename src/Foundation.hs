@@ -5,6 +5,8 @@
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE ViewPatterns #-}
 {-# LANGUAGE InstanceSigs #-}
+{-# LANGUAGE ExplicitForAll #-}
+{-# LANGUAGE RankNTypes #-}
 
 module Foundation where
 
@@ -18,6 +20,7 @@ import Data.Kind            (Type)
 import qualified Yesod.Core.Unsafe as Unsafe
 import qualified Data.CaseInsensitive as CI
 import qualified Data.Text.Encoding as TE
+import Database.Persist.Sql (ConnectionPool, runSqlPool)
 
 -- | The foundation datatype for your application. This can be a good place to
 -- keep settings and values requiring initialization before your application
@@ -28,6 +31,7 @@ data App = App
     , appStatic      :: Static -- ^ Settings for static file serving.
     , appHttpManager :: Manager
     , appLogger      :: Logger
+    , appConnPool    :: ConnectionPool -- ^ Database connection pool.
     }
 
 data MenuItem = MenuItem
@@ -156,6 +160,13 @@ instance Yesod App where
         -- Generate a unique filename based on the content itself
         genFileName lbs = "autogen-" ++ base64md5 lbs
 
+    -- Custom 404 page
+    errorHandler NotFound = fmap toTypedContent $ do
+                    defaultLayout $ do
+                        setTitle "asd"
+                        $(widgetFile "404")
+    errorHandler other = defaultErrorHandler other
+
     -- What messages should be logged. The following includes all messages when
     -- in development, and warnings and errors in production.
     shouldLogIO :: App -> LogSource -> LogLevel -> IO Bool
@@ -202,3 +213,19 @@ unsafeHandler = Unsafe.fakeHandlerGetLogger appLogger
 -- https://github.com/yesodweb/yesod/wiki/Sending-email
 -- https://github.com/yesodweb/yesod/wiki/Serve-static-files-from-a-separate-domain
 -- https://github.com/yesodweb/yesod/wiki/i18n-messages-in-the-scaffolding
+
+-- How to run database actions.
+-- | A convenient synonym for database access functions.
+type DB a = forall (m :: Type -> Type).
+    (MonadUnliftIO m) => ReaderT SqlBackend m a
+
+instance YesodPersist App where
+    type YesodPersistBackend App = SqlBackend
+    runDB :: SqlPersistT Handler a -> Handler a
+    runDB action = do
+        master <- getYesod
+        runSqlPool action $ appConnPool master
+
+instance YesodPersistRunner App where
+    getDBRunner :: Handler (DBRunner App, Handler ())
+    getDBRunner = defaultGetDBRunner appConnPool

@@ -8,6 +8,8 @@
 
 / HomeR GET
 
-/page1 Page1R GET
-
 /blog/#FilePath BlogR GET
+
+/cv CVR GET
+
+/cv/#FilePath CVPostR GET
