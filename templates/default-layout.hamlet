@@ -1,3 +1,4 @@
+<script> MathJax = { tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}}
 
 <!-- Static navbar -->
 $if (Just HomeR /= mcurrentRoute)

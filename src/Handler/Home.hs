@@ -37,6 +37,7 @@ getBlogR title = do
         setTitle "Title"
         addScript $ StaticR js_highlight_highlight_min_js
         addStylesheet $ StaticR js_highlight_styles_tokyo_night_dark_min_css
+        addScriptRemote("https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js")
         toWidget $ preEscapedToHtml html
 
 -- randomBlogPost :: Route App
