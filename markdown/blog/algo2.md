@@ -101,6 +101,16 @@ This logic is probably "off-by-one" somewhere but I give up thinking about it an
 
 _Welp, got that one right in one._
 
+After his explanation there was one bit I wasn't quite satisfied with, why \\(\sqrt[3]{x}\\)
+doesn't work as well. While I don't think it's as bad as \\(\mathcal{O}(n)\\) I think
+it's worse than \\(\mathcal{O}(\sqrt{n})\\).
+
+Let's consider \\(\sqrt[3]{x}\\), whilst our linear search becomes smaller. Our jumps
+do also, we have to do \\(\sqrt[3]{x}^2\\) jumps. In general, for an \\(i^th\\) power
+we have a run time of \\(x^(1/i) + x^(1 - i/1)\\). We want to minimise this,
+which is just when the two terms are equal (big-\\(\mathcal{O}\\) notation 'takes' only
+the largest term), _i.e._ taking the square-root.
+
 Let's implement, we can do this in a really nice general way (and re-implement binary
 search).
 
