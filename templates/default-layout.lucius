@@ -99,3 +99,7 @@ pre, code {
   border: 1px solid white;
   border-radius: 5%;
 }
+
+th {
+    border-bottom: 1px solid #9aa5ce;
+}
