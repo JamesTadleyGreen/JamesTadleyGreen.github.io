@@ -22,7 +22,7 @@ Wow this got hard fast, [this answer](https://codereview.stackexchange.com/quest
 shows that fold might have been the way to go, but to me it's less readable.
 
 ## Linked Lists
-The point around insertion being \\(\\O(1)\\) threw me a little, isn't it \\(\\O(n)\\)
+The point around insertion being \\(\mathcal{O}(1)\\) threw me a little, isn't it \\(\mathcal{O}(n)\\)
 to traverse to the node that you wish to insert? This [answer](https://stackoverflow.com/questions/840648/why-is-inserting-in-the-middle-of-a-linked-list-o1)
 shows the same idea. Tl;dr yes, but getting to the node is ignored.
 
@@ -109,7 +109,7 @@ peak :: Queue a -> Maybe a
 peak (Queue []) = Nothing
 peak (Queue (x:_)) = Just x
 ```
-I think `(++)` is \\(\\O(n)\\) due to having to traverse the list. There's probably a
+I think `(++)` is \\(\mathcal{O}(n)\\) due to having to traverse the list. There's probably a
 better way to do this, but I'm not sure.
 
 ## Stack
@@ -132,7 +132,7 @@ peek (Stack []) = Nothing
 peek (Stack (x:_)) = Just x
 ```
 
-This one 'feels' super \\(\\O(1)\\) as we're only ever messing with the head. It suffers
+This one 'feels' super \\(\mathcal{O}(1)\\) as we're only ever messing with the head. It suffers
 from the same shortcomings as the queue.
 
 In both of the above we didn;t bother defining `length`, it would be super easy to assign
