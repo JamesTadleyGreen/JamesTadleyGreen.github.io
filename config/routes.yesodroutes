@@ -8,7 +8,7 @@
 
 / HomeR GET
 
-/blog/#FilePath BlogR GET
+/blog/*[FilePath] BlogR GET
 
 /cv CVR GET
 
