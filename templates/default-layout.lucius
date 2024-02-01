@@ -1,3 +1,15 @@
+a:link {
+    color: #0892A5;
+}
+
+a:visited {
+    color: #FF9B85;
+}
+
+a:hover {
+    color: #EE6055;
+}
+
 .masthead,
 .navbar {
     background-color: rgb(27, 28, 29);
@@ -48,8 +60,6 @@
   padding: 20px;
   margin: 20px 0;
   border: 1px solid #eee;
-  border-left-width: 5px;
-  border-radius: 3px;
 }
 
 .bs-callout p:last-child {
@@ -73,8 +83,8 @@
 }
 
 body {
-  color: lightgrey;
-  background-color: #34364c;
+  color: #DFE2CF;
+  background-color: #1a1b26;
 }
 
 pre, code {
@@ -88,4 +98,8 @@ pre, code {
   width: 60%;
   border: 1px solid white;
   border-radius: 5%;
+}
+
+th {
+    border-bottom: 1px solid #9aa5ce;
 }

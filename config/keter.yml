@@ -3,7 +3,6 @@
 #
 # Also, please make sure that `port` value on `config/settings.yaml` is set to
 # use `PORT` env variable.
-user-edited: false
 
 # A Keter app is composed of 1 or more stanzas. The main stanza will define our
 # web application. See the Keter documentation for more information on
@@ -28,7 +27,7 @@ stanzas:
       # You can specify one or more hostnames for your application to respond
       # to. The primary hostname will be used for generating your application
       # root.
-      - www.yesod-demo.com
+      - www.JamesTadleyGreen.co.um
 
     # Enable to force Keter to redirect to https
     # Can be added to any stanza
@@ -37,7 +36,7 @@ stanzas:
   # Static files.
   - type: static-files
     hosts:
-      - static.yesod-demo.com
+      - static.JamesTadleyGreen.com
     root: ../static
 
     # Uncomment to turn on directory listings.
@@ -47,9 +46,9 @@ stanzas:
   - type: redirect
 
     hosts:
-      - yesod-demo.com
+      - JamesTadleyGreen.com
     actions:
-      - host: www.yesod-demo.com
+      - host: www.JamesTadleyGreen.com
         # secure: false
         # port: 80
 

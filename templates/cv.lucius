@@ -1,0 +1,45 @@
+.menu {
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.menu-items {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: row;
+  margin: 2em;
+}
+
+.menu-title {
+    flex: 2 2;
+    margin: 2em;
+}
+
+.menu-item-description {
+    opacity: 0;
+    display: flex;
+    transition: opacity 800ms ease-in-out;
+    position: relative;
+    left: 0px;
+    flex: 5 5;
+}
+
+
+.menu-items:hover > .menu-item:hover > .menu-item-description {
+    animation: descriptionAppear 1s ease-out forwards;
+    transition: opacity 800ms ease-in-out;
+}
+
+@keyframes descriptionAppear
+{
+    from {left: 100px; opacity: 0;}
+    to {left: 0px; opacity: 1;}
+}

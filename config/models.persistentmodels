@@ -1,0 +1,8 @@
+Blog
+    title Text
+    fileName Text
+    date Day
+CvHeaders
+    title Text
+    description Text
+    fileName Text

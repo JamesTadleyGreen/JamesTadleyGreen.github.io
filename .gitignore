@@ -21,3 +21,12 @@ cabal.project.local
 cabal.project.local~
 .HTF/
 .ghc.environment.*
+
+# Mac files
+.DS_Store
+
+# Vim Session
+Session.vim
+
+# CSS Temp Files
+static/tmp/*

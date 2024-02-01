@@ -1,5 +1,5 @@
 <div .menu>
     <div .menu-items>
        $forall menuItem <- menuItems
-            <a href=@{fst menuItem} .menu-item>#{show $ snd menuItem}
+            <a href=@{fst menuItem} .menu-item>#{preEscapedToMarkup $ snd menuItem}
     <div .menu-background-pattern>

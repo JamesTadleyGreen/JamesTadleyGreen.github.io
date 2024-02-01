@@ -27,6 +27,10 @@ ip-from-header: "_env:YESOD_IP_FROM_HEADER:false"
 # reload-templates: false
 # mutable-static: false
 # skip-combining: false
+database:
+  # See config/test-settings.yml for an override during tests
+  database: "_env:YESOD_SQLITE_DATABASE:BLOG.sqlite3"
+  poolsize: "_env:YESOD_SQLITE_POOLSIZE:10"
 
-copyright: Insert copyright statement here
+copyright: Copyright © 2023 James Green. All Rights Reserved.
 #analytics: UA-YOURCODE
