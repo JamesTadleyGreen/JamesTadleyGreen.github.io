@@ -1,7 +1,0 @@
-<div .menu>
-    <div .menu-items>
-       $forall Entity cvHeadersID cvHeaders <- cvItems
-            <div .menu-item>
-                <a href=@{CVPostR $ fromText $ cvHeadersFileName cvHeaders} .menu-title>#{cvHeadersTitle cvHeaders}
-                <div .menu-item-description>#{cvHeadersDescription cvHeaders}
-    <div .menu-background-pattern>

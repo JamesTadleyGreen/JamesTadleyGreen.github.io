@@ -30,3 +30,6 @@ Session.vim
 
 # CSS Temp Files
 static/tmp/*
+
+# Hakyll Folders
+_cache/
