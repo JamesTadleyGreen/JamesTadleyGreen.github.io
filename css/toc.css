@@ -1,0 +1,37 @@
+.toc {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    border-radius: 5px 5px 0 0;
+    font-family: sans-serif;
+    min-width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.toc td {
+    padding: 0.5em 0.5em;
+}
+
+.toc tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.toc tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.toc tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+.toc tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Allows the link to expand the cell */
+.toc td a {
+   display: block;
+   text-decoration: none;
+   color: inherit;
+}

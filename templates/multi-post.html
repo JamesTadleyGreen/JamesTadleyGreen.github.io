@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/css/toc.css" />
+<table class="toc">
+    <tbody>
+    $for(posts)$
+        $if(isCurrentPost)$
+            <tr class="active-row">
+                <td><a href="$url$">$postNum$</a></td>
+                <td><a href="$url$">$title$</a></td>
+            </tr>
+        $else$
+            <tr>
+                <td><a href="$url$">$postNum$</a></td>
+                <td><a href="$url$">$title$</a></td>
+            </tr>
+        $endif$
+    $endfor$
+    </tbody>
+</table>
+
+$body$

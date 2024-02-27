@@ -1,3 +1,9 @@
+---
+title: Search
+date: 2023-11-20
+tags: maths, algorithms, haskell, search
+---
+
 # Search
 
 ## Linear Search
