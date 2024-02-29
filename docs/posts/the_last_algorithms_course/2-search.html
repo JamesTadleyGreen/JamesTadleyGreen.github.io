@@ -46,6 +46,13 @@
 
 <link rel="stylesheet" href="../../css/post.css" />
 <link rel="stylesheet" href="../../css/JetBrains-Mono.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
 <article>
     <section class="header">
         Posted on 1st January 2020
@@ -55,8 +62,31 @@
         
     </section>
     <section>
-        <h1 id="search">Search</h1>
-<h2 id="linear-search">Linear Search</h2>
+        <blockquote>
+<p>We look a two different searches, one on a sorted list, and finish with a brainteaser.</p>
+</blockquote>
+<ul>
+<li>toc</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Header</th>
+<th>Header</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Linear Search</td>
+<td>Binary Search</td>
+</tr>
+<tr class="even">
+<td>Linear Search</td>
+<td>Binary Search</td>
+</tr>
+</tbody>
+</table>
+<h1 data-number="1" id="linear-search"><span class="header-section-number">1</span> Linear Search</h1>
 <p>Currently I want to write in Haskell, mainly because it’s ‘mathsy’. It’s been a while
 so my first attempt looks like this.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">linearSearch ::</span> <span class="dt">Eq</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
@@ -82,7 +112,7 @@ so my first attempt looks like this.</p>
 Secondly, if the search fails, it returns the length of the list.
 Thirdly, it doesn’t short circuit.
 Finally, it’s just super gross to look at from a code perspective.</p>
-<p>Both are <span class="math inline">𝒪(<em>n</em>)</span>, which is good!</p>
+<p>Both are <span class="math inline">\(\mathcal{O}(n)\)</span>, which is good!</p>
 <p>Now I watch a little more and it turns out we don’t need the index! We only need to
 return a <code>bool</code> indicating if the search was successful.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ot">linearSearch ::</span> <span class="dt">Eq</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">Bool</span></span>
@@ -90,11 +120,11 @@ return a <code>bool</code> indicating if the search was successful.</p>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>linearSearch (a<span class="op">:</span>as) s</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">|</span> a <span class="op">==</span> s    <span class="ot">=</span> <span class="dt">True</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">|</span> <span class="fu">otherwise</span> <span class="ot">=</span> linearSearch as s</span></code></pre></div>
-<h3 id="notes">Notes</h3>
+<h2 data-number="1.1" id="notes"><span class="header-section-number">1.1</span> Notes</h2>
 <p><em>Had a <a href="https://stackoverflow.com/questions/52518817/haskell-linear-search-returning-index">google</a>
 after the event, I should be returning a <code>Maybe Int</code> in my first attempts.
 Using fmap to lift the <code>(+1)</code> into the <code>Just</code> is something I would have missed.</em></p>
-<h2 id="binary-search">Binary Search</h2>
+<h1 data-number="2" id="binary-search"><span class="header-section-number">2</span> Binary Search</h1>
 <p>Things get a bit more orderly here. We assume we have ordered lists. Thus, our function
 type is going to change. It’s going to be <code>Ord a =&gt; [a] -&gt; a -&gt; Int</code>. I love Hasekll
 for exactly this reason. The type signature is giving such a breadth of information for
@@ -113,13 +143,13 @@ free, allowing less cognitive overhead.</p>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>       v <span class="ot">=</span> as <span class="op">!!</span> m</span></code></pre></div>
 <p>Interestingly The Primeagen uses <code>lo &lt; hi</code> this confuses me, I can’t think of a
 situation where this could possibly occur. So I’ll leave mine as is.</p>
-<h3 id="notes-1">Notes</h3>
+<h2 data-number="2.1" id="notes-1"><span class="header-section-number">2.1</span> Notes</h2>
 <p>Using <a href="https://codereview.stackexchange.com/questions/158096/binary-search-in-haskell">StackOverflow</a>
 I see I should have used <code>quot</code> instead of <code>div</code>. This is due to
 <a href="https://stackoverflow.com/questions/8111120/integral-operators-quot-vs-div">this answer</a>
 regarding speed of the operations.</p>
 <p>My implementation of this looks close enough that I am happy.</p>
-<h2 id="two-crystal-problem">Two Crystal Problem</h2>
+<h1 data-number="3" id="two-crystal-problem"><span class="header-section-number">3</span> Two Crystal Problem</h1>
 <p>First impressions, this is cool. It’s very much similar to maths problems I’ve done in
 interviews before. Second impression, i need to give this some thought. It’s
 obviously a binary search, but exactly how isn’t obvious.</p>
@@ -138,18 +168,20 @@ length of the linear search.
 bounce, we have two additional checks.</li>
 <li>For any additional break we still have two additional checks.</li>
 </ul></li>
-<li>This means for x floors we want to have \(\) subdivisions.</li>
+<li>This means for x floors we want to have <span class="math inline">\(\sqrt{x}\)</span> subdivisions.</li>
 </ul>
 <p>This logic is probably “off-by-one” somewhere but I give up thinking about it any more!</p>
-<p><em>Welp, got that one right in one.</em></p>
-<p>After his explanation there was one bit I wasn’t quite satisfied with, why \(\)
-doesn’t work as well. While I don’t think it’s as bad as \((n)\) I think
-it’s worse than \(()\).</p>
-<p>Let’s consider \(\), whilst our linear search becomes smaller. Our jumps
-do also, we have to do \(^2\) jumps. In general, for an \(i^th\) power
-we have a run time of \(x^(1/i) + x^(1 - i/1)\). We want to minimise this,
-which is just when the two terms are equal (big-\(\) notation ‘takes’ only
-the largest term), <em>i.e.</em> taking the square-root.</p>
+<blockquote>
+<p>Welp, got that one right in one.</p>
+</blockquote>
+<p>After his explanation there was one bit I wasn’t quite satisfied with, why <span class="math inline">\(\sqrt[3]{x}\)</span>
+doesn’t work as well. While I don’t think it’s as bad as <span class="math inline">\(\mathcal{O}(n)\)</span> I think
+it’s worse than <span class="math inline">\(\mathcal{O}(\sqrt{n})\)</span>.</p>
+<p>Let’s consider <span class="math inline">\(\sqrt[3]{x}\)</span>, whilst our linear search becomes smaller. Our jumps
+do also, we have to do <span class="math inline">\(\sqrt[3](x)^2\)</span> jumps. In general, for an <span class="math inline">\(i^{th}\)</span> power
+we have a run time of <span class="math inline">\(x^{(1/i)} + x^{(1 - i/1)}\)</span>. We want to minimise this,
+which is just when the two terms are equal (big-<span class="math inline">\(\mathcal{O}\)</span> notation ‘takes’ only
+the largest term), <em>i.e. taking the square of the cube-root</em>.</p>
 <p>Let’s implement, we can do this in a really nice general way (and re-implement binary
 search).</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ot">generalisedSearch ::</span> <span class="dt">Ord</span> a <span class="ot">=&gt;</span> [<span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>] <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">Bool</span></span>

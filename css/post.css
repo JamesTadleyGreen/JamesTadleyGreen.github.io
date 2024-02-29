@@ -1,6 +1,48 @@
+/* Headings */
 h1, h2, h3 {
     font-family: 'Courier New', monospace;
     text-decoration: underline;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    max-width: 95%;
+    min-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+thead {
+    border-bottom: 2px solid var(--text-primary);
+    background-color: var(--background-secondary);
+    text-align: left;
+}
+
+td, th {
+    padding: 0.5em 0.5em;
+}
+
+tbody tr {
+    border-bottom: 1px solid var(--text-primary);
+}
+
+
+tbody tr:last-of-type {
+    border-bottom: 2px solid var(--text-secondary);
+}
+
+
+/* Quotes */
+blockquote {
+  background: var(--background-secondary);
+  border-left: 0.5rem solid var(--text-primary);
+  margin: 1rem 1rem;
+  padding: 0.5rem 3rem;
+  quotes: "\201C""\201D""\2018""\2019";
 }
 
 /* For code syntax highlighting */
@@ -30,14 +72,17 @@ td > code {
   border-radius: .2rem;
 }
 
+/* Removing overflow, enforcing word wrapping */
+pre > code.sourceCode {
+  white-space: pre-wrap;
+}
+
 /* Code blocks */
 pre code {
   display: block;
-  white-space: pre;
-  -webkit-overflow-scrolling: touch;
-  overflow-x: scroll;
-  max-width: 100%;
-  min-width: 100px;
+  overflow-x: auto;
+  /* max-width: 100%; */
+  /* min-width: 100px; */
   padding: 1rem;
 }
 
