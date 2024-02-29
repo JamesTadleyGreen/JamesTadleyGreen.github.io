@@ -93,6 +93,7 @@ interviews before. Second impression, i need to give this some thought. It's
 obviously a binary search, but exactly how isn't obvious.
 
 We can't 'hit' the max more than once, else we have no more balls. Some scenarios:
+
  - We drop from floor 3 and it breaks
    - We then have to drop the ball from the 1st floor, else if it breaks on the second
   we don't know if it'd break on the first.
