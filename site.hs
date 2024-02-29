@@ -18,7 +18,8 @@ main =
       compile copyFileCompiler
     create ["css/syntax.css"] $ do
       route idRoute
-      compile $ do makeItem $ styleToCss pandocCodeStyle
+      compile $ do
+          makeItem $ styleToCss pandocHighlightingStyle
     match "css/*" $ do
       route idRoute
       compile compressCssCompiler
@@ -102,14 +103,17 @@ config :: Configuration
 config = defaultConfiguration {destinationDirectory = "docs"}
 
 --------------------------------------------------------------------------------
-pandocCodeStyle :: Style
-pandocCodeStyle = breezeDark
+
 
 pandocCompiler' :: Compiler (Item String)
 pandocCompiler' =
   pandocCompilerWith
     defaultHakyllReaderOptions
-    defaultHakyllWriterOptions {writerHighlightStyle = Just pandocCodeStyle}
+    defaultHakyllWriterOptions {writerHighlightStyle = Just pandocHighlightingStyle}
+--------------------------------------------------------------------------------
+pandocHighlightingStyle :: Style
+pandocHighlightingStyle = breezeDark
+
 --------------------------------------------------------------------------------
 getIdentifiers :: Pattern -> Compiler [Item String]
 getIdentifiers pattern = do

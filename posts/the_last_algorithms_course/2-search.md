@@ -54,6 +54,7 @@ linearSearch (a:as) s
 Had a [google](https://stackoverflow.com/questions/52518817/haskell-linear-search-returning-index)
 after the event, I should be returning a `Maybe Int` in my first attempts.
 Using fmap to lift the `(+1)` into the `Just` is something I would have missed.
+
 ## Binary Search
 Things get a bit more orderly here. We assume we have ordered lists. Thus, our function
 type is going to change. It's going to be `Ord a => [a] -> a -> Int`. I love Hasekll

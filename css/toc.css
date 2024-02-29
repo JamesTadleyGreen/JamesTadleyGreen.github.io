@@ -17,16 +17,17 @@
 }
 
 .toc tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+    border-bottom: 2px solid #5AB4CD;
 }
 
 .toc tbody tr.active-row {
     font-weight: bold;
-    color: #009879;
+    color: #5AB4CD;
 }
 
 .toc tr:hover {
     background-color: #f5f5f5;
+    border-radius: 5px 5px 0 0;
 }
 
 /* Allows the link to expand the cell */

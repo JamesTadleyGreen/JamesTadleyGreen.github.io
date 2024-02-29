@@ -40,17 +40,11 @@
             </tr>
         
     
-        
-            <tr>
-                <td><a href="../../posts/the_last_algorithms_course/3-sort.html">3</a></td>
-                <td><a href="../../posts/the_last_algorithms_course/3-sort.html">Sort</a></td>
-            </tr>
-        
-    
     </tbody>
 </table>
 
 <link rel="stylesheet" href="../../css/post.css" />
+<link rel="stylesheet" href="../../css/JetBrains-Mono.css" />
 <article>
     <section class="header">
         Posted on 1st January 2020
@@ -98,9 +92,9 @@ return a <code>bool</code> indicating if the search was successful.</p>
 <h3 id="notes">Notes</h3>
 <p>Had a <a href="https://stackoverflow.com/questions/52518817/haskell-linear-search-returning-index">google</a>
 after the event, I should be returning a <code>Maybe Int</code> in my first attempts.
-Using fmap to lift the <code>(+1)</code> into the <code>Just</code> is something I would have missed.
-## Binary Search
-Things get a bit more orderly here. We assume we have ordered lists. Thus, our function
+Using fmap to lift the <code>(+1)</code> into the <code>Just</code> is something I would have missed.</p>
+<h2 id="binary-search">Binary Search</h2>
+<p>Things get a bit more orderly here. We assume we have ordered lists. Thus, our function
 type is going to change. It’s going to be <code>Ord a =&gt; [a] -&gt; a -&gt; Int</code>. I love Hasekll
 for exactly this reason. The type signature is giving such a breadth of information for
 free, allowing less cognitive overhead.</p>
