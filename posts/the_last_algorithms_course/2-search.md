@@ -1,5 +1,5 @@
 ---
-title: Search
+title: "Part II: Search"
 date: 2023-11-20
 tags: maths, algorithms, haskell, search
 ---
@@ -51,9 +51,9 @@ linearSearch (a:as) s
     | otherwise = linearSearch as s
 ```
 ### Notes
-Had a [google](https://stackoverflow.com/questions/52518817/haskell-linear-search-returning-index)
+_Had a [google](https://stackoverflow.com/questions/52518817/haskell-linear-search-returning-index)
 after the event, I should be returning a `Maybe Int` in my first attempts.
-Using fmap to lift the `(+1)` into the `Just` is something I would have missed.
+Using fmap to lift the `(+1)` into the `Just` is something I would have missed._
 
 ## Binary Search
 Things get a bit more orderly here. We assume we have ordered lists. Thus, our function

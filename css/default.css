@@ -1,25 +1,43 @@
 html {
   font-size: 62.5%;
-  /* background-color: grey; */
+  font-family: 'Trebuchet MS', sans-serif;
+  background-color: var(--background);
+  color: var(--text-primary);
 }
 
 body {
   font-size: 1.6rem;
-  color: #000;
 }
 
 header {
-  border-bottom: 0.2rem solid #000;
+  border-bottom: 0.2rem solid var(--text-primary);
 }
 
 nav {
   text-align: right;
 }
 
+a {
+  text-decoration: none;
+  color: var(--text-secondary);
+}
+
+a:hover {
+  color: var(--text-primary);
+}
+
+a:visited {
+  color: var(--text-tertiary);
+}
+
+p > em {
+  color: var(--text-low-contrast);
+}
+
 nav a {
   font-size: 1.8rem;
   font-weight: bold;
-  color: black;
+  color: var(--text-primary);
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -27,9 +45,9 @@ nav a {
 footer {
   margin-top: 3rem;
   padding: 1.2rem 0;
-  border-top: 0.2rem solid #000;
+  border-top: 0.2rem solid var(--text-primary);
   font-size: 1.2rem;
-  color: #555;
+  color: var(--text-secondary);
 }
 
 h1 {
@@ -40,16 +58,15 @@ h2 {
   font-size: 2rem;
 }
 
-article .header {
-  font-size: 1.4rem;
-  font-style: italic;
-  color: #555;
-}
-
 .logo a {
   font-weight: bold;
-  color: #000;
+  color: var(--text-secondary);
   text-decoration: none;
+  font-family: 'Courier New', monospace;
+}
+
+nav > a:hover {
+    color: var(--text-secondary);
 }
 
 @media (max-width: 319px) {

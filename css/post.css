@@ -1,5 +1,12 @@
+h1, h2, h3 {
+    font-family: 'Courier New', monospace;
+    text-decoration: underline;
+}
+
+/* For code syntax highlighting */
 .sourceCode {
   border-radius: 5px;
+  box-shadow: var(--shadow);
 }
 
 /* For all <code> */
@@ -7,8 +14,9 @@ code {
   font-family: 'JetBrains Mono', monospace;
   font-size: 75%;
   border-radius: 5px;
-  background: #242831;
+  background: var(--background-secondary);
   color: #c8c8f0;
+  box-shadow: var(--shadow);
 }
 
 /* Code in text */

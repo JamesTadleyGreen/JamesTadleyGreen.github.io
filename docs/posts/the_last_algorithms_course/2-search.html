@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Search - James Green</title>
+        <title>Part II: Search - James Green</title>
+        <link rel="stylesheet" href="../../css/variables.css" />
         <link rel="stylesheet" href="../../css/default.css" />
         <link rel="stylesheet" href="../../css/syntax.css" />
     </head>
@@ -21,7 +22,7 @@
         </header>
 
         <main role="main">
-            <h1>Search</h1>
+            <h1>Part II: Search</h1>
             <link rel="stylesheet" href="../../css/toc.css" />
 <table class="toc">
     <tbody>
@@ -29,14 +30,14 @@
         
             <tr>
                 <td><a href="../../posts/the_last_algorithms_course/1-intro.html">1</a></td>
-                <td><a href="../../posts/the_last_algorithms_course/1-intro.html">Intro</a></td>
+                <td><a href="../../posts/the_last_algorithms_course/1-intro.html">Part I: Intro</a></td>
             </tr>
         
     
         
             <tr class="active-row">
                 <td><a href="../../posts/the_last_algorithms_course/2-search.html">2</a></td>
-                <td><a href="../../posts/the_last_algorithms_course/2-search.html">Search</a></td>
+                <td><a href="../../posts/the_last_algorithms_course/2-search.html">Part II: Search</a></td>
             </tr>
         
     
@@ -90,9 +91,9 @@ return a <code>bool</code> indicating if the search was successful.</p>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">|</span> a <span class="op">==</span> s    <span class="ot">=</span> <span class="dt">True</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">|</span> <span class="fu">otherwise</span> <span class="ot">=</span> linearSearch as s</span></code></pre></div>
 <h3 id="notes">Notes</h3>
-<p>Had a <a href="https://stackoverflow.com/questions/52518817/haskell-linear-search-returning-index">google</a>
+<p><em>Had a <a href="https://stackoverflow.com/questions/52518817/haskell-linear-search-returning-index">google</a>
 after the event, I should be returning a <code>Maybe Int</code> in my first attempts.
-Using fmap to lift the <code>(+1)</code> into the <code>Just</code> is something I would have missed.</p>
+Using fmap to lift the <code>(+1)</code> into the <code>Just</code> is something I would have missed.</em></p>
 <h2 id="binary-search">Binary Search</h2>
 <p>Things get a bit more orderly here. We assume we have ordered lists. Thus, our function
 type is going to change. It’s going to be <code>Ord a =&gt; [a] -&gt; a -&gt; Int</code>. I love Hasekll

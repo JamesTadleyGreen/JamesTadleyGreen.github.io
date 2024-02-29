@@ -1,5 +1,5 @@
 ---
-title: Intro
+title: "Part I: Intro"
 date: 2023-11-19
 tags: maths,algorithms,haskell
 ---
