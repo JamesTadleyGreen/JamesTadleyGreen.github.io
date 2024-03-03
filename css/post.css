@@ -4,6 +4,25 @@ h1, h2, h3 {
     text-decoration: underline;
 }
 
+/* Tags */
+.tag {
+  color: var(--text-secondary);
+  transition: 700ms ease;
+}
+
+.tag:hover {
+    text-shadow:
+    -0.3px -0.3px 0 var(--text-secondary),
+    0.3px -0.3px 0 var(--text-secondary),
+    -0.3px 0.3px 0 var(--text-secondary),
+    0.3px 0.3px 0 var(--text-secondary);
+    letter-spacing: 0.1em;
+}
+
+.tag:visited {
+  color: var(--text-secondary);
+}
+
 /* Tables */
 table {
     border-collapse: collapse;

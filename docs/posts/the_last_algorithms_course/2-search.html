@@ -46,19 +46,19 @@
 
 <link rel="stylesheet" href="../../css/post.css" />
 <link rel="stylesheet" href="../../css/JetBrains-Mono.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"> -->
+<!-- <!-1- The loading of KaTeX is deferred to speed up page rendering -1-> -->
+<!-- <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script> -->
 
-    <!-- The loading of KaTeX is deferred to speed up page rendering -->
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
-
-    <!-- To automatically render math in text elements, include the auto-render extension: -->
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<!-- <!-1- To automatically render math in text elements, include the auto-render extension: -1-> -->
+<!-- <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" -->
+<!--     onload="renderMathInElement(document.body);"></script> -->
 <article>
     <section class="header">
         Posted on 1st January 2020
         <br>
         
-           Tags: maths, algorithms, haskell, search
+           #<a class="tag" href="../../tags/maths.html">maths</a> #<a class="tag" href="../../tags/algorithms.html">algorithms</a> #<a class="tag" href="../../tags/haskell.html">haskell</a> #<a class="tag" href="../../tags/search.html">search</a>
         
     </section>
     <section>
@@ -157,10 +157,10 @@ bounce, we have two additional checks.</li>
 doesn’t work as well. While I don’t think it’s as bad as <span class="math inline">\(\mathcal{O}(n)\)</span> I think
 it’s worse than <span class="math inline">\(\mathcal{O}(\sqrt{n})\)</span>.</p>
 <p>Let’s consider <span class="math inline">\(\sqrt[3]{x}\)</span>, whilst our linear search becomes smaller. Our jumps
-do also, we have to do <span class="math inline">\(\sqrt[3](x)^2\)</span> jumps. In general, for an <span class="math inline">\(i^{th}\)</span> power
-we have a run time of <span class="math inline">\(x^{(1/i)} + x^{(1 - i/1)}\)</span>. We want to minimise this,
+do also, we have to do <span class="math inline">\(\sqrt[3]x^2\)</span> jumps. In general, for an <span class="math inline">\(i^{th}\)</span> power
+we have a run time of <span class="math inline">\(x^{(1/i)} + x^{(1 - 1/i)}\)</span>. We want to minimise this,
 which is just when the two terms are equal (big-<span class="math inline">\(\mathcal{O}\)</span> notation ‘takes’ only
-the largest term), <em>i.e. taking the square of the cube-root</em>.</p>
+the largest term), <em>i.e. taking the square-root</em>.</p>
 <p>Let’s implement, we can do this in a really nice general way (and re-implement binary
 search).</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ot">generalisedSearch ::</span> <span class="dt">Ord</span> a <span class="ot">=&gt;</span> [<span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>] <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">Bool</span></span>
