@@ -63,10 +63,23 @@ blockquote {
   padding: 0.5rem 3rem;
   quotes: "\201C""\201D""\2018""\2019";
 }
+/* Line numbers */
+pre.numberSource {
+    margin-left: 0rem;
+    padding-left: 1rem;
+    border-left: none;
+}
 
+pre.numberSource code > span > a:first-child::before{
+    color: #5A5F82;
+    background-color: var(--background-secondary);
+    text-decoration: none;
+    border-right: 1px solid #5A5F82;
+}
 /* For code syntax highlighting */
-.sourceCode {
+div.sourceCode {
   border-radius: 5px;
+  background-color: var(--background-secondary);
   box-shadow: var(--shadow);
 }
 
@@ -75,9 +88,7 @@ code {
   font-family: 'JetBrains Mono', monospace;
   font-size: 75%;
   border-radius: 5px;
-  background: var(--background-secondary);
   color: #c8c8f0;
-  box-shadow: var(--shadow);
 }
 
 /* Code in text */
