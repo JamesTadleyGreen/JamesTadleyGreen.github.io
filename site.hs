@@ -3,13 +3,12 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 
 import Data.Bifunctor (Bifunctor(bimap))
-import Data.List (intersperse, intercalate)
+import Data.List (intercalate, intersperse)
+import Data.List.Split (splitOn)
 import Data.Map as M
 import Data.Maybe (maybeToList)
 import Data.Monoid (mappend)
 import Data.Text (Text, pack)
-import Data.List.Split (splitOn)
-import Debug.Trace
 import Hakyll
 import System.FilePath
 import Text.Blaze.Html ((!), toHtml, toValue)
@@ -143,7 +142,7 @@ config :: Configuration
 config = defaultConfiguration {destinationDirectory = "docs"}
 
 --------------------------------------------------------------------------------
-pandocCompiler' :: M.Map Text Text -> Compiler (Item String)
+pandocCompiler' :: M.Map Text (Int, Text) -> Compiler (Item String)
 pandocCompiler' snippets =
   pandocCompilerWithTransform
     defaultHakyllReaderOptions
@@ -170,14 +169,23 @@ pandocCompiler' snippets =
     (codeInclude snippets)
 
 --------------------------------------------------------------------------------
-fileToSnippet :: Item String -> M.Map Text Text
-fileToSnippet item = M.fromList (Prelude.map (Data.Bifunctor.bimap pack pack) kvs)
+fileToSnippet :: Item String -> M.Map Text (Int, Text)
+fileToSnippet item = M.fromList (Prelude.map snd kvs)
   where
     snippets = splitOn "§" (itemBody item)
-    kvs = Prelude.map (extractName . lines) snippets
-    extractName s = (Prelude.head s, intercalate "\n" $ Prelude.tail s)
+    kvs =
+      Prelude.scanl
+        (\(lineNumber, (_, (_, _))) ->
+           extractNameAndLineNumber lineNumber . lines)
+        (0, ("", (0, "")))
+        snippets
+    extractNameAndLineNumber lineNumber s =
+      ( lineNumber + length s -1
+      , ( pack $ Prelude.head s
+        , ( lineNumber + 2
+          , pack $ intercalate "\n" $ Prelude.tail $ Prelude.init s)))
 
-codeInclude :: M.Map Text Text -> Pandoc -> Pandoc
+codeInclude :: M.Map Text (Int, Text) -> Pandoc -> Pandoc
 codeInclude snippets =
   walk $ \block ->
     case block of
@@ -187,11 +195,16 @@ codeInclude snippets =
           else block
       _ -> block
 
-codeBlockFromDiv :: M.Map Text Text -> Block -> Block
+codeBlockFromDiv :: M.Map Text (Int, Text) -> Block -> Block
 codeBlockFromDiv snippets div@(Div (_, _, kvs) _) =
-  let classes = "numberLines" : maybeToList (Prelude.lookup "lexer" kvs)
-      content = Prelude.lookup "name" kvs >>= (`M.lookup` snippets)
-   in maybe Null (CodeBlock ("", classes, [])) content
+  let snippet = Prelude.lookup "name" kvs >>= (`M.lookup` snippets)
+      classes = "numberLines" : maybeToList (Prelude.lookup "lexer" kvs)
+   in case snippet of
+        Nothing -> Null
+        Just (lineNumber, content) ->
+          CodeBlock
+            ("", classes, [("startFrom", pack $ show lineNumber)])
+            content
 codeBlockFromDiv _ _ = Null
 
 --------------------------------------------------------------------------------
