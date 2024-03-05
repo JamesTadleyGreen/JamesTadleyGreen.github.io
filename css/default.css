@@ -42,6 +42,10 @@ nav a {
   text-transform: uppercase;
 }
 
+nav a:visited {
+    color: var(--text-primary);
+}
+
 footer {
   margin-top: 3rem;
   padding: 1.2rem 0;

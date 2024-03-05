@@ -66,7 +66,6 @@ blockquote {
 /* Line numbers */
 pre.numberSource {
     margin-left: 0rem;
-    padding-left: 1rem;
     border-left: none;
 }
 
@@ -75,6 +74,7 @@ pre.numberSource code > span > a:first-child::before{
     background-color: var(--background-secondary);
     text-decoration: none;
     border-right: 1px solid #5A5F82;
+    padding-left: 2.5rem;
 }
 /* For code syntax highlighting */
 div.sourceCode {
