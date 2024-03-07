@@ -1,34 +1,15 @@
---------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 
-import Data.Bifunctor (Bifunctor(bimap))
-import Data.List (intercalate, intersperse)
-import Data.List.Split (splitOn)
+import Site.Git
+import Site.Context (postCtx, multiPostCtx, getPostNum)
+import Site.Snippet (fileToSnippet, codeInclude, pandocHighlightingStyle)
+import Site.Compiler (pandocCompiler')
+
 import Data.Map as M
-import Data.Maybe (maybeToList)
-import Data.Monoid (mappend)
 import Data.Text (Text, pack)
 import Hakyll
-import System.FilePath
-import Text.Blaze.Html ((!), toHtml, toValue)
-import qualified Text.Blaze.Html5 as H
-import qualified Text.Blaze.Html5.Attributes as A
-import Text.Pandoc.Class
-import Text.Pandoc.Definition (Block(CodeBlock, Div, Null), Pandoc)
-import Text.Pandoc.Highlighting (Style, breezeDark, styleToCss)
-import Text.Pandoc.Options
-  ( Extension(Ext_abbreviations, Ext_fenced_divs,
-          Ext_inline_code_attributes, Ext_latex_macros, Ext_tex_math_dollars,
-          Ext_tex_math_double_backslash, Ext_tex_math_single_backslash)
-  , HTMLMathMethod(MathJax)
-  , ReaderOptions(..)
-  , WriterOptions(..)
-  , extensionsFromList
-  , readerExtensions
-  )
-import Text.Pandoc.Templates
-import Text.Pandoc.Walk
+import Text.Pandoc.Highlighting (styleToCss)
 
 --------------------------------------------------------------------------------
 main :: IO ()
@@ -111,111 +92,17 @@ main =
         getResourceBody >>= applyAsTemplate indexCtx >>=
           loadAndApplyTemplate "templates/default.html" indexCtx >>=
           relativizeUrls
-    match "templates/*" $ compile templateBodyCompiler
+    match "templates/**" $ compile templateBodyCompiler
 
 --------------------------------------------------------------------------------
-postCtx :: Tags -> Context String
-postCtx tags =
-  tagsFieldWith getTags renderLink (mconcat . intersperse " #") "tags" tags `mappend`
-  defaultContext
-
---------------------------------------------------------------------------------
-renderLink :: String -> Maybe FilePath -> Maybe H.Html
-renderLink _ Nothing = Nothing
-renderLink tag (Just filePath) =
-  Just $
-  H.a Text.Blaze.Html.! A.class_ "tag" Text.Blaze.Html.!
-  A.href (toValue $ toUrl filePath) $
-  toHtml tag
-
---------------------------------------------------------------------------------
-multiPostCtx :: String -> Context String
-multiPostCtx currentPostNum =
-  field "postNum" (return . getPostNum) <>
-  boolField "isCurrentPost" ((== currentPostNum) . getPostNum)
-
-getPostNum :: Item a -> String
-getPostNum = takeWhile (/= '-') . takeBaseName . toFilePath . itemIdentifier
 
 --------------------------------------------------------------------------------
 config :: Configuration
 config = defaultConfiguration {destinationDirectory = "docs"}
 
 --------------------------------------------------------------------------------
-pandocCompiler' :: M.Map Text (Int, Text) -> Compiler (Item String)
-pandocCompiler' snippets =
-  pandocCompilerWithTransform
-    defaultHakyllReaderOptions
-      { readerExtensions =
-          readerExtensions defaultHakyllReaderOptions <>
-          extensionsFromList
-            [ Ext_tex_math_single_backslash -- TeX math btw (..) [..]
-            , Ext_tex_math_double_backslash -- TeX math btw \(..\) \[..\]
-            , Ext_tex_math_dollars -- TeX math between $..$ or $$..$$
-            , Ext_latex_macros -- Parse LaTeX macro definitions (for math only)
-            , Ext_inline_code_attributes -- Ext_inline_code_attributes
-            , Ext_abbreviations -- PHP markdown extra abbreviation definitions
-            , Ext_fenced_divs
-            ]
-      }
-    defaultHakyllWriterOptions
-      { writerHighlightStyle = Just pandocHighlightingStyle
-      , writerHTMLMathMethod = MathJax ""
-      , writerTableOfContents = True
-      , writerNumberSections = True
-      , writerTOCDepth = 2
-      -- , writerTemplate = Just tocTemplate
-      }
-    (codeInclude snippets)
 
 --------------------------------------------------------------------------------
-fileToSnippet :: Item String -> M.Map Text (Int, Text)
-fileToSnippet item = M.fromList (Prelude.map snd kvs)
-  where
-    snippets = splitOn "§" (itemBody item)
-    kvs =
-      Prelude.scanl
-        (\(lineNumber, (_, (_, _))) ->
-           extractNameAndLineNumber lineNumber . lines)
-        (0, ("", (0, "")))
-        snippets
-    extractNameAndLineNumber lineNumber s =
-      ( lineNumber + length s -1
-      , ( pack $ Prelude.head s
-        , ( lineNumber + 2
-          , pack $ intercalate "\n" $ Prelude.tail $ Prelude.init s)))
-
-codeInclude :: M.Map Text (Int, Text) -> Pandoc -> Pandoc
-codeInclude snippets =
-  walk $ \block ->
-    case block of
-      div@(Div (_, cs, _) _) ->
-        if "code-include" `elem` cs
-          then codeBlockFromDiv snippets div
-          else block
-      _ -> block
-
-codeBlockFromDiv :: M.Map Text (Int, Text) -> Block -> Block
-codeBlockFromDiv snippets div@(Div (_, _, kvs) _) =
-  let snippet = Prelude.lookup "name" kvs >>= (`M.lookup` snippets)
-      classes = "numberLines" : maybeToList (Prelude.lookup "lexer" kvs)
-   in case snippet of
-        Nothing -> Null
-        Just (lineNumber, content) ->
-          CodeBlock
-            ("", classes, [("startFrom", pack $ show lineNumber)])
-            content
-codeBlockFromDiv _ _ = Null
-
---------------------------------------------------------------------------------
--- tocTemplate = do
---         res <- getTemplate "templates/toc.html" >>= runWithDefaultPartials . compileTemplate "templates/toc.html"
---         case res of
---             Left e   -> undefined
---             Right t  -> return t
---------------------------------------------------------------------------------
-pandocHighlightingStyle :: Style
-pandocHighlightingStyle = breezeDark
 
 --------------------------------------------------------------------------------
 getIdentifiers :: Pattern -> Compiler [Item String]

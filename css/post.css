@@ -1,3 +1,17 @@
+/* Header info */
+li > svg {
+ height: 1.5rem;
+ width: 1.5rem;
+}
+
+.header {
+    text-align: right;
+}
+
+.header ol li {
+    list-style-type: none;
+}
+
 /* Headings */
 h1, h2, h3 {
     font-family: 'Courier New', monospace;
@@ -63,6 +77,7 @@ blockquote {
   padding: 0.5rem 3rem;
   quotes: "\201C""\201D""\2018""\2019";
 }
+
 /* Line numbers */
 pre.numberSource {
     margin-left: 0rem;

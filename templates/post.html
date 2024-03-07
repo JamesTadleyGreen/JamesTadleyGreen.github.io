@@ -9,11 +9,28 @@
 <!--     onload="renderMathInElement(document.body);"></script> -->
 <article>
     <section class="header">
-        Posted on 1st January 2020
-        <br>
-        $if(tags)$
-           #$tags$
-        $endif$
+        <ol class="post-info">
+            $if(date)$
+                <li>
+                    Posted $date$ $partial("templates/icons/calendar.html")$
+                </li>
+            $endif$
+            $if(readingTime)$
+                <li>
+                    $readingTime$ minute read $partial("templates/icons/clock.html")$
+                </li>
+            $endif$
+            $if(gitHash)$
+                <li>
+                    $gitHash$ $partial("templates/icons/branch.html")$
+                </li>
+            $endif$
+            $if(tags)$
+                <li>
+                   #$tags$ $partial("templates/icons/tag-icon.html")$
+                </li>
+            $endif$
+        </ol>
     </section>
     <section>
         $body$
