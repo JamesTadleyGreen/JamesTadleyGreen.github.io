@@ -1,0 +1,18 @@
+<section class="header">
+    <ol class="post-info">
+        $if(tags)$
+            <li>
+                Last updated $date$ $partial("templates/icons/calendar.html")$
+            </li>
+            <li>
+                $readingTime$ minute read $partial("templates/icons/clock.html")$
+            </li>
+            <li>
+                $gitHash$ $partial("templates/icons/branch.html")$
+            </li>
+            <li>
+               #$tags$ $partial("templates/icons/tag-icon.html")$
+            </li>
+        $endif$
+    </ol>
+</section>

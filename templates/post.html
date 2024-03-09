@@ -8,30 +8,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 <article>
-    <section class="header">
-        <ol class="post-info">
-            $if(date)$
-                <li>
-                    Posted $date$ $partial("templates/icons/calendar.html")$
-                </li>
-            $endif$
-            $if(readingTime)$
-                <li>
-                    $readingTime$ minute read $partial("templates/icons/clock.html")$
-                </li>
-            $endif$
-            $if(gitHash)$
-                <li>
-                    $gitHash$ $partial("templates/icons/branch.html")$
-                </li>
-            $endif$
-            $if(tags)$
-                <li>
-                   #$tags$ $partial("templates/icons/tag-icon.html")$
-                </li>
-            $endif$
-        </ol>
-    </section>
+    <!-- $partial("templates/header.html")$ -->
     <section>
         $body$
     </section>
