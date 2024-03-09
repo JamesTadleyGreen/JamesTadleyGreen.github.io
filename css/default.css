@@ -17,6 +17,16 @@ nav {
   text-align: right;
 }
 
+.title {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.header {
+  display: inline-block;
+  float: inline-end;
+}
+
 a {
   text-decoration: none;
   color: var(--text-secondary);
