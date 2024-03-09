@@ -1,10 +1,10 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 
-import Site.Git
-import Site.Context (postCtx, multiPostCtx, getPostNum)
-import Site.Snippet (fileToSnippet, codeInclude, pandocHighlightingStyle)
 import Site.Compiler (pandocCompiler')
+import Site.Context (getPostNum, multiPostCtx, postCtx)
+import Site.Git
+import Site.Snippet (codeInclude, fileToSnippet, pandocHighlightingStyle)
 
 import Data.Map as M
 import Data.Text (Text, pack)
@@ -38,10 +38,10 @@ main =
       let title = "Posts tagged \"" ++ tag ++ "\""
       route idRoute
       compile $ do
-        posts <- recentFirst =<< loadAll pattern
+        posts <- loadAll pattern
         let ctx =
-              constField "title" title `mappend`
-              listField "posts" (postCtx tags) (return posts) `mappend`
+              constField "title" title <>
+              listField "posts" (postCtx tags) (return posts) <>
               defaultContext
         makeItem "" >>= loadAndApplyTemplate "templates/tag.html" ctx >>=
           loadAndApplyTemplate "templates/default.html" ctx >>=
@@ -74,10 +74,10 @@ main =
     create ["posts.html"] $ do
       route idRoute
       compile $ do
-        posts <- recentFirst =<< loadAll "posts/**/*.md"
+        posts <- loadAll "posts/**"
         let archiveCtx =
-              listField "posts" defaultContext (return posts) `mappend`
-              constField "title" "Archives" `mappend`
+              listField "posts" (defaultContext <> gitFields) (return posts) <>
+              constField "title" "Archives" <>
               defaultContext
         makeItem "" >>= loadAndApplyTemplate "templates/archive.html" archiveCtx >>=
           loadAndApplyTemplate "templates/default.html" archiveCtx >>=
@@ -85,24 +85,18 @@ main =
     match "index.html" $ do
       route idRoute
       compile $ do
-        posts <- recentFirst =<< loadAll "posts/**/*"
+        posts <- loadAll "posts/**"
         let indexCtx =
-              listField "posts" defaultContext (return posts) `mappend`
-              defaultContext
+              listField "posts" (defaultContext <> gitFields) (return posts) <>
+              gitFields <> defaultContext
         getResourceBody >>= applyAsTemplate indexCtx >>=
           loadAndApplyTemplate "templates/default.html" indexCtx >>=
           relativizeUrls
     match "templates/**" $ compile templateBodyCompiler
 
 --------------------------------------------------------------------------------
-
---------------------------------------------------------------------------------
 config :: Configuration
 config = defaultConfiguration {destinationDirectory = "docs"}
-
---------------------------------------------------------------------------------
-
---------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
 getIdentifiers :: Pattern -> Compiler [Item String]

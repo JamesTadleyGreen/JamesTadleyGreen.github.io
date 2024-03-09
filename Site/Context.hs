@@ -6,7 +6,7 @@ module Site.Context
   , getPostNum
   ) where
 
-import Site.Git (versionField, GitVersionContent(Hash))
+import Site.Git (gitFields)
 
 
 import Data.List (intercalate, intersperse)
@@ -27,9 +27,8 @@ renderLink tag (Just filePath) =
 postCtx :: Tags -> Context String
 postCtx tags =
   tagsFieldWith getTags renderLink (mconcat . intersperse " #") "tags" tags <>
-  -- versionField "gitHash" Hash <>
-  constField "gitHash" "123" <>
-  constField "readingTime" "5" <>
+  gitFields <>
+  field "readingTime" (return . readingTime . itemBody) <>
   defaultContext
 
 multiPostCtx :: String -> Context String
@@ -39,3 +38,6 @@ multiPostCtx currentPostNum =
 
 getPostNum :: Item a -> String
 getPostNum = takeWhile (/= '-') . takeBaseName . toFilePath . itemIdentifier
+
+readingTime :: String -> String
+readingTime body = show $ max (length (words body) `div` 100) 1

@@ -1,48 +1,36 @@
 -- https://blog.ysndr.de/posts/internals/2020-03-22-built-with-hakyll-part-2/
-module Site.Git(versionField, GitVersionContent(..)) where
+-- Modified slightly
+module Site.Git
+  ( gitFields
+  ) where
 
-import System.Exit (ExitCode(..))
+import Debug.Trace
+import Data.Functor ((<&>))
+import Data.List.Split (splitOn)
 import Hakyll
-import Data.List (dropWhileEnd)
-import Data.Char (isSpace)
-import           System.Process
+import System.Exit (ExitCode(..))
+import System.Process (readProcessWithExitCode)
+
+formatDate :: String -> String
+formatDate = take 10
 
 
-data GitVersionContent
-  = Hash
-  | Commit
-  | Full
-  deriving (Eq, Read)
-
-instance Show GitVersionContent where
-  show content =
-    case content of
-      Hash -> "%h"
-      Commit -> "%h: %s"
-      Full -> "%h: %s (%ai)"
-
--- Query information of a given file tracked with git
-getGitVersion ::
-     GitVersionContent -- Kind of information
-  -> FilePath -- File to query information of
-  -> IO String --
-getGitVersion content path = do
-  (status, stdout, _) <-
-    readProcessWithExitCode
-      "git"
-      ["log", "-1", "--format=" ++ show content, "--", "src/" ++ path]
-      ""
-  return $
+getGitVersion :: FilePath -> IO [String]
+getGitVersion path = do
+  (status, stdout, a) <-
+    readProcessWithExitCode "git" ["log", "-1", "--format=%h|%s|%ai", path] ""
+  let [hash, message, date] = splitOn "|" stdout
+  trace (show stdout ++ show path) $ return $
     case status of
-      ExitSuccess -> trim stdout
-      _ -> ""
-  where
-    trim = dropWhileEnd isSpace
+      ExitSuccess -> [hash, message, formatDate date]
+      _ -> []
 
--- Field that contains the latest commit hash that hash touched the current item.
-versionField :: String -> GitVersionContent -> Context String
-versionField name content =
-  field name $ \item ->
-    unsafeCompiler $ do
-      let path = toFilePath $ itemIdentifier item
-      getGitVersion content path
+gitFields :: Context String
+gitFields =
+  mconcat [getGit "gitHash" 0, getGit "gitMessage" 1, getGit "date" 2]
+  where
+    getGit name idx =
+      field name $ \item ->
+        unsafeCompiler $ do
+          let path = toFilePath $ itemIdentifier item
+          getGitVersion path <&> (!! idx)

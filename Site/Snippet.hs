@@ -6,8 +6,6 @@ module Site.Snippet
   , pandocHighlightingStyle
   ) where
 
-import Site.Git (GitVersionContent(Hash), versionField)
-
 import Data.List (intercalate)
 import Data.List.Split (splitOn)
 import Data.Map (Map, fromList)
