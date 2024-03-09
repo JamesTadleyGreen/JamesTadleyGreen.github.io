@@ -1,6 +1,5 @@
 ---
 title: Development Workflow
-date: 2024-02-25
 tags: work, personal, vim
 ---
 

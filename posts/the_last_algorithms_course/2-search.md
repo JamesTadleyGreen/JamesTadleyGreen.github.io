@@ -1,6 +1,5 @@
 ---
 title: "Part II: Search"
-date: 2023-11-20
 tags: maths, algorithms, haskell, search
 ---
 
