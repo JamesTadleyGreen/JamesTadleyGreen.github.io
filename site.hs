@@ -107,7 +107,7 @@ getIdentifiers pattern = do
 --------------------------------------------------------------------------------
 getCodeFile :: Item a -> Identifier
 getCodeFile item =
-  fromFilePath $ r (replaceExtension (toFilePath (itemIdentifier item)) ".py")
+  fromFilePath $ r (replaceExtension (toFilePath (itemIdentifier item)) ".hs")
   where
     r path = joinPath $ ("code/" :: FilePath) : tail (splitPath path)
 
