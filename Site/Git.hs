@@ -4,7 +4,6 @@ module Site.Git
   ( gitFields
   ) where
 
-import Debug.Trace
 import Data.Functor ((<&>))
 import Data.List.Split (splitOn)
 import Hakyll
@@ -20,7 +19,7 @@ getGitVersion path = do
   (status, stdout, a) <-
     readProcessWithExitCode "git" ["log", "-1", "--format=%h|%s|%ai", path] ""
   let [hash, message, date] = splitOn "|" stdout
-  trace (show stdout ++ show path) $ return $
+  return $
     case status of
       ExitSuccess -> [hash, message, formatDate date]
       _ -> []

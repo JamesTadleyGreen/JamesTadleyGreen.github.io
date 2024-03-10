@@ -8,7 +8,9 @@ import Site.Snippet (codeInclude, fileToSnippet, pandocHighlightingStyle)
 
 import Data.Map as M
 import Data.Text (Text, pack)
+import System.Directory (doesFileExist)
 import Hakyll
+import System.FilePath.Posix
 import Text.Pandoc.Highlighting (styleToCss)
 
 --------------------------------------------------------------------------------
@@ -41,8 +43,7 @@ main =
         posts <- loadAll pattern
         let ctx =
               constField "title" title <>
-              listField "posts" (postCtx tags) (return posts) <>
-              defaultContext
+              listField "posts" (postCtx tags) (return posts) <> defaultContext
         makeItem "" >>= loadAndApplyTemplate "templates/tag.html" ctx >>=
           loadAndApplyTemplate "templates/default.html" ctx >>=
           relativizeUrls
@@ -56,8 +57,8 @@ main =
     match "posts/**/*.md" $ do
       route $ setExtension "html"
       compile $ do
-        snippets <-
-          fileToSnippet <$> load "code/the_last_algorithms_course/1-intro.py"
+        codeFile <- getCodeFile <$> getResourceString
+        snippets <- fileToSnippet <$> maybeLoad codeFile
         thisPostNum <- getPostNum <$> getResourceString
         (posts :: [Item String]) <- getIdentifiers "posts/**/*.md"
         let ctx =
@@ -77,8 +78,7 @@ main =
         posts <- loadAll "posts/**"
         let archiveCtx =
               listField "posts" (defaultContext <> gitFields) (return posts) <>
-              constField "title" "Archives" <>
-              defaultContext
+              constField "title" "Archives" <> defaultContext
         makeItem "" >>= loadAndApplyTemplate "templates/archive.html" archiveCtx >>=
           loadAndApplyTemplate "templates/default.html" archiveCtx >>=
           relativizeUrls
@@ -103,3 +103,19 @@ getIdentifiers :: Pattern -> Compiler [Item String]
 getIdentifiers pattern = do
   identifiers <- getMatches pattern
   return [Item identifier "" | identifier <- identifiers]
+
+--------------------------------------------------------------------------------
+getCodeFile :: Item a -> Identifier
+getCodeFile item =
+  fromFilePath $ r (replaceExtension (toFilePath (itemIdentifier item)) ".py")
+  where
+    r path = joinPath $ ("code/" :: FilePath) : tail (splitPath path)
+
+--------------------------------------------------------------------------------
+maybeLoad :: Identifier -> Compiler (Item String)
+maybeLoad identifier = do
+    let filePath = toFilePath identifier
+    exists <- unsafeCompiler $ doesFileExist filePath
+    if exists
+        then makeItem =<< unsafeCompiler (readFile filePath)
+        else pure (Item identifier "")
