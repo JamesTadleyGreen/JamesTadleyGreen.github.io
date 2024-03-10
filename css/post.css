@@ -115,6 +115,7 @@ td > code {
   box-decoration-break: clone;
   padding: .1rem .3rem .2rem;
   border-radius: .2rem;
+  box-shadow: var(--shadow);
 }
 
 /* Removing overflow, enforcing word wrapping */
