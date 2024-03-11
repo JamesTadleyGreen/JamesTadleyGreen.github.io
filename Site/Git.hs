@@ -18,11 +18,17 @@ getGitVersion :: FilePath -> IO [String]
 getGitVersion path = do
   (status, stdout, a) <-
     readProcessWithExitCode "git" ["log", "-1", "--format=%h|%s|%ai", path] ""
-  let [hash, message, date] = splitOn "|" stdout
   return $
     case status of
-      ExitSuccess -> [hash, message, formatDate date]
+      ExitSuccess -> extractGitInfo stdout
       _ -> []
+
+extractGitInfo :: String -> [String]
+extractGitInfo s = [hash, message, formatDate date]
+    where
+      xs = splitOn "|" s
+      ys = if length xs < 3 then ["", "", ""] else xs
+      [hash, message, date] = ys
 
 gitFields :: Context String
 gitFields =
