@@ -60,12 +60,12 @@ main =
         codeFile <- getCodeFile <$> getResourceString
         snippets <- fileToSnippet <$> maybeLoad codeFile
         thisPostNum <- getPostNum <$> getResourceString
-        (posts :: [Item String]) <- getIdentifiers "posts/**/*.md"
+        posts <- getRelatedPosts <$> getResourceFilePath
         let ctx =
               listField
                 "posts"
                 (postCtx tags <> multiPostCtx thisPostNum)
-                (return posts) <>
+                posts <>
               postCtx tags
         pandocCompiler' snippets >>=
           loadAndApplyTemplate "templates/post.html" ctx >>=
@@ -119,3 +119,6 @@ maybeLoad identifier = do
     if exists
         then makeItem =<< unsafeCompiler (readFile filePath)
         else pure (Item identifier "")
+
+getRelatedPosts :: String -> Compiler [Item String]
+getRelatedPosts path = getIdentifiers $ fromGlob $ takeDirectory path ++ "/*.md"
