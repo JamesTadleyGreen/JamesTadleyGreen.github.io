@@ -65,3 +65,9 @@ simplest solution we could think of that had the best time to payoff ratio. Ther
 risk of double failure as the raspberry pi is on the same network as the API, but this
 was a trade-off we were willing to accept. At time of writing, we've never had this 
 process fail.
+
+# Moving Forward
+
+Visibility and reporting of our API could be improved, utilising tools such as 
+[Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/) would allow us
+to more easily understand the scope of any issues before our clients are aware of them.
