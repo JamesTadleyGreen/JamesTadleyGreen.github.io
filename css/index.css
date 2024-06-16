@@ -25,7 +25,7 @@ span {
 .container {
   display: inline-flex;
   flex: none;
-  height: 1.5em;
+  height: 4em;
   flex-flow: column nowrap;
   overflow: auto;
   text-decoration: underline;
@@ -40,7 +40,11 @@ span {
 }
 
 .container > div {
-  /* margin: 2em 0em 2em 0em; */
+  margin: 0.7em 0 0;
   scroll-snap-align: center;
   flex: none;
+}
+
+.inactive {
+  color: gray;
 }
