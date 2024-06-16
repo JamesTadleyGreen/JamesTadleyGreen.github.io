@@ -1,16 +1,28 @@
 ---
-title: Home
+title: James Tadley Green
 ---
 
-<h2>Welcome</h2>
+<link rel="stylesheet" href="/css/index.css" />
 
-<img src="/images/haskell-logo.png" style="float: right; margin: 10px;" />
+<h1>Tell me about you:</h1>
 
-<p>Welcome to my blog!</p>
+<div class="form">
+  <div class="flex">
+    <span>I am a</span>
+    <div id="role-selector" class="scroll-snap container">
+      <div>Recruiter</div>
+      <div>Maths Person</div>
+      <div>Comp Sci Person</div>
+      <div>Data Scientist</div>
+      <div>Artist</div>
+    </div>
+    <span>,</span>
+  </div>
 
-<p>I've reproduced a list of recent posts here for your reading pleasure:</p>
+  <div class="flex">
+    <span>and I'm interested in</span>
+    <div id="interest-selector" class="scroll-snap container"></div>
+  </div>
+</div>
 
-<h2>Posts</h2>
-$partial("templates/post-list.html")$
-
-<p>…or you can find more in the <a href="/archive.html">archives</a>.</p>
+<script src="/js/index.js"></script>
