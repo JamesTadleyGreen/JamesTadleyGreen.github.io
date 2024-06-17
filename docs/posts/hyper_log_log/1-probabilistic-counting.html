@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Part I: Probabilistic Counting Algorithms - James Green</title>
+        <link rel="stylesheet" href="../../css/variables.css" />
+        <link rel="stylesheet" href="../../css/default.css" />
+        <link rel="stylesheet" href="../../css/syntax.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../../">James Tadley Green</a>
+            </div>
+            <nav>
+                <a href="../../">Home</a>
+                <a href="../../about.html">About</a>
+                <a href="../../posts.html">Posts</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <h1 class="title">Part I: Probabilistic Counting Algorithms</h1>
+            <section class="header">
+    <ol class="post-info">
+        
+            <li>
+                Last updated  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"></path>
+</svg>
+
+            </li>
+            <li>
+                8 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+
+            </li>
+            <li>
+                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"></path>
+</svg>
+
+            </li>
+            <li>
+               #<a class="tag" href="../../tags/maths.html">maths</a> #<a class="tag" href="../../tags/algorithms.html">algorithms</a> #<a class="tag" href="../../tags/haskell.html">haskell</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"></path>
+</svg>
+
+            </li>
+        
+    </ol>
+</section>
+
+            <link rel="stylesheet" href="../../css/toc.css" />
+<table class="toc">
+    <tbody>
+    
+        
+            <tr class="active-row">
+                <td><a href="../../posts/hyper_log_log/1-probabilistic-counting.html">1</a></td>
+                <td><a href="../../posts/hyper_log_log/1-probabilistic-counting.html">Part I: Probabilistic Counting Algorithms</a></td>
+            </tr>
+        
+    
+    </tbody>
+</table>
+
+<link rel="stylesheet" href="../../css/post.css" />
+<link rel="stylesheet" href="../../css/JetBrains-Mono.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<article>
+    <!-- <section class="header">
+    <ol class="post-info">
+        
+            <li>
+                Last updated  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"/>
+</svg>
+
+            </li>
+            <li>
+                5 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+</svg>
+
+            </li>
+            <li>
+                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"/>
+</svg>
+
+            </li>
+            <li>
+               #<a class="tag" href="/tags/maths.html">maths</a> #<a class="tag" href="/tags/algorithms.html">algorithms</a> #<a class="tag" href="/tags/haskell.html">haskell</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"/>
+</svg>
+
+            </li>
+        
+    </ol>
+</section>
+ -->
+    <section>
+        <h1 data-number="1" id="counting"><span class="header-section-number">1</span> Counting</h1>
+<p>Sometimes we need to count things, sometimes we need to count distinct or unique things.
+In computer science, counting things (ideally quickly) is very important. Counting
+distinct things is more important, and more difficult.</p>
+<h1 data-number="2" id="the-accurate-way"><span class="header-section-number">2</span> The accurate way</h1>
+<h2 data-number="2.1" id="time-complexity"><span class="header-section-number">2.1</span> Time Complexity</h2>
+<h3 data-number="2.1.1" id="mappings"><span class="header-section-number">2.1.1</span> Mappings</h3>
+<p>Lets consider the naïve way. If I wanted to count the number the number of distinct
+integers in an array. Just think of this as a map from whatever important detail we care
+about, to the integers. For example, if we wanted the number of distinct colour of balls,
+we might use a mapping such as</p>
+<pre><code>red -&gt; 1
+blue -&gt; 2
+green -&gt; 3</code></pre>
+<p>Then in an array / list of numbers, all we care about is how many of these three
+integers occur.</p>
+<p><em>Side note: Creating a mapping like this might not be easy, we don’t know how many items
+exist (obviously) up front. We’ll ignore this fact for the time being.</em></p>
+<h3 data-number="2.1.2" id="the-algorithm"><span class="header-section-number">2.1.2</span> The Algorithm</h3>
+<p>Now to count distinct items, we use a hash table, this has different names in different
+languages:</p>
+<ul>
+<li>Python: <code>dict</code></li>
+<li>Javascript: <code>map</code></li>
+<li>Java, Rust, Haskell: <code>hashmap</code></li>
+<li>C: <code>good luck, build yourself</code></li>
+</ul>
+<p>The idea is the same across all of them:</p>
+<ul>
+<li>Given a key</li>
+<li>Hash the key</li>
+<li>Check the hash in the hash table</li>
+<li>If the hash exists, double check the key against the value in the hash table</li>
+<li>Add the key if none exists</li>
+</ul>
+<p>This means we’re able to add an item to the hash table in <span class="math inline">\(\mathcal{O}(h)\)</span> time, where
+<span class="math inline">\(h\)</span> is the time it takes to hash the value. Since the hashing function is independent of
+the number of items, this is <span class="math inline">\(\mathcal{O}(1)\)</span> time.
+You might look at this and think we’ve missed the time it takes to find and insert the
+value into the hash table.</p>
+<h3 data-number="2.1.3" id="hash-table"><span class="header-section-number">2.1.3</span> Hash table</h3>
+<p>How does the hash table actually work? In the general case, it’s an array type structure
+with a linked list at each node. However for our purposes we will consider it to simply
+be an array. How big is said array? It’s <span class="math inline">\(n \times m\)</span> where <span class="math inline">\(n\)</span> is the number of distinct items
+we can possibly store, and <span class="math inline">\(m\)</span> is the size of the hashed values.</p>
+<p>To store a value it’s clearly <span class="math inline">\(\mathcal{O}(1)\)</span> time, we simply add / check a value at
+position <code>hash(value)</code><span class="math inline">\(\times m\)</span></p>
+<p><em>Technically here we’re using a hashring, which is taking the hashes modulo some large
+number, namely the upper bound on the possible distinct elements.</em></p>
+<h3 data-number="2.1.4" id="complexity"><span class="header-section-number">2.1.4</span> Complexity</h3>
+<p>So inserting is <span class="math inline">\(\mathcal{O}(1)\)</span> time, counting the number of elements in the hash table
+is <span class="math inline">\(\mathcal{O}(n)\)</span> time, as we need to iterate over all values. Finally, looping over
+the list is also <span class="math inline">\(\mathcal{O}(n)\)</span> time.</p>
+<h2 data-number="2.2" id="space-complexity"><span class="header-section-number">2.2</span> Space Complexity</h2>
+<p>So we’re fine in terms of time, but how do we looks for space? Well, we need to have a
+hash table of the same size of our input array.</p>
+    </section>
+</article>
+
+
+        </main>
+
+        <footer>
+            © 2023, James Green
+        </footer>
+    </body>
+</html>
