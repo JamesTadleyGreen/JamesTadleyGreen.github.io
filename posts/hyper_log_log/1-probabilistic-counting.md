@@ -71,7 +71,17 @@ the list is also $\mathcal{O}(n)$ time.
 
 ## Space Complexity
 So we're fine in terms of time, but how do we looks for space? Well, we need to have a 
-hash table of the same size of our input array.
+hash table of the same size of our input array. 
+
+_Technically this isn't true, but due to how we've defined the hash table above, it's 
+close enough._
+
+This size is obviously less than ideal if we've got billions of rows of data. For example,
+we might want to count the distinct number of users to an app in a given month.
+
+# Next Steps
+But can we do any better? Don't we always have to have space of at least the size of 
+the input?
 
 
 

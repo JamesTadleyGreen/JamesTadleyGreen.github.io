@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Part II: The Flajolet-Martin Algorithm - James Green</title>
+        <link rel="stylesheet" href="../../css/variables.css" />
+        <link rel="stylesheet" href="../../css/default.css" />
+        <link rel="stylesheet" href="../../css/syntax.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../../">James Tadley Green</a>
+            </div>
+            <nav>
+                <a href="../../">Home</a>
+                <a href="../../about.html">About</a>
+                <a href="../../posts.html">Posts</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <h1 class="title">Part II: The Flajolet-Martin Algorithm</h1>
+            <section class="header">
+    <ol class="post-info">
+        
+            <li>
+                Last updated  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"></path>
+</svg>
+
+            </li>
+            <li>
+                7 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+
+            </li>
+            <li>
+                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"></path>
+</svg>
+
+            </li>
+            <li>
+               #<a class="tag" href="../../tags/maths.html">maths</a> #<a class="tag" href="../../tags/algorithms.html">algorithms</a> #<a class="tag" href="../../tags/haskell.html">haskell</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"></path>
+</svg>
+
+            </li>
+        
+    </ol>
+</section>
+
+            <link rel="stylesheet" href="../../css/toc.css" />
+<table class="toc">
+    <tbody>
+    
+        
+            <tr>
+                <td><a href="../../posts/hyper_log_log/1-probabilistic-counting.html">1</a></td>
+                <td><a href="../../posts/hyper_log_log/1-probabilistic-counting.html">Part I: Probabilistic Counting Algorithms</a></td>
+            </tr>
+        
+    
+        
+            <tr class="active-row">
+                <td><a href="../../posts/hyper_log_log/2-flajolet-martin.html">2</a></td>
+                <td><a href="../../posts/hyper_log_log/2-flajolet-martin.html">Part II: The Flajolet-Martin Algorithm</a></td>
+            </tr>
+        
+    
+    </tbody>
+</table>
+
+<link rel="stylesheet" href="../../css/post.css" />
+<link rel="stylesheet" href="../../css/JetBrains-Mono.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<article>
+    <!-- <section class="header">
+    <ol class="post-info">
+        
+            <li>
+                Last updated  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"/>
+</svg>
+
+            </li>
+            <li>
+                4 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+</svg>
+
+            </li>
+            <li>
+                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"/>
+</svg>
+
+            </li>
+            <li>
+               #<a class="tag" href="/tags/maths.html">maths</a> #<a class="tag" href="/tags/algorithms.html">algorithms</a> #<a class="tag" href="/tags/haskell.html">haskell</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"/>
+</svg>
+
+            </li>
+        
+    </ol>
+</section>
+ -->
+    <section>
+        <h1 data-number="1" id="motivation"><span class="header-section-number">1</span> Motivation</h1>
+<p>We covered off the basics of counting in the last section, and ended on a question:
+&gt; Can we count objects without using a store that is <span class="math inline">\(\mathcal{O}(n)\)</span>?</p>
+<p>The answer, surprisingly, is yes! But, we have to make some sacrifices:</p>
+<ul>
+<li>We won’t be 100% accurate in our answer</li>
+<li>The more accurate we want our answers, the more space we need (with diminishing returns)</li>
+</ul>
+<p>But, why do we care about this? What useful, real-world, application is this useful for.
+As stated in the last section, we care when our datasets are extremely large, for example:</p>
+<ul>
+<li>An app that gets billions of users per day, caring about distinct users and return rates</li>
+<li>An app that gets billions of tweets per day, caring about distinct users tweeting</li>
+<li>A database wanting to find unique IDs in a table</li>
+</ul>
+<p>A fascinating example is given in the <a href="http://algo.inria.fr/flajolet/Publications/FlMa85.pdf">original paper</a>.
+Consider a database, we may very well care about the intersection of two datasets, <em>e.g. for joins</em>.
+But what is the best method for joining the sets? The paper lists three strategies, for datasets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span></p>
+<ul>
+<li>Sort <span class="math inline">\(A\)</span> and search <span class="math inline">\(B\)</span> for each element</li>
+<li>Sort <span class="math inline">\(A\)</span>, sort <span class="math inline">\(B\)</span>, then merge the two sets together</li>
+<li>Remove duplicates in the above sets, then do either of the above methods</li>
+</ul>
+<p>They proclaim that the complexities of the above strategies are as follows:</p>
+<ul>
+<li><span class="math inline">\(\mathcal{O}(a\log\alpha + b\log\beta)\)</span></li>
+<li><span class="math inline">\(\mathcal{O}(a\log a + b\log b + a + b)\)</span></li>
+</ul>
+<p>Where <span class="math inline">\(a=\lvert A\rvert\)</span>, <span class="math inline">\(b=\lvert B\rvert\)</span>, and <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are the number of unique items
+in <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> respectively.</p>
+<h2 data-number="1.1" id="complexity-aside"><span class="header-section-number">1.1</span> Complexity aside</h2>
+<h3 data-number="1.1.1" id="strategy-1"><span class="header-section-number">1.1.1</span> Strategy 1</h3>
+<p>Let’s prove the above claims. We claim without proof that sorting a list is
+<a href="https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture7.pdf"><span class="math inline">\(\mathcal{O}(n\log n)\)</span></a>.
+The first part comes from this fact, sorting <span class="math inline">\(A\)</span> takes <span class="math inline">\(a\log\alpha\)</span>.
+For the second part, we iterate over <span class="math inline">\(B\)</span>, this is $(b). For each of
+these items, we have to find it in <span class="math inline">\(A\)</span>. To do this we perform binary search;
+this involves splitting the array repeatedly in half and searching if our target
+is above or below this value. <a href="../../posts/the_last_algorithms_course/2-search.html">This article</a>
+goes into more detail. Thus, we ‘only’ have to do <span class="math inline">\(\log_2 b\)</span> ‘jumps’. So,
+the total complexity is <span class="math inline">\(b\log b\)</span> as claimed.</p>
+<h3 data-number="1.1.2" id="strategy-2"><span class="header-section-number">1.1.2</span> Strategy 2</h3>
+    </section>
+</article>
+
+
+        </main>
+
+        <footer>
+            © 2023, James Green
+        </footer>
+    </body>
+</html>
