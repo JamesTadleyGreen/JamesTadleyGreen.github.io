@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Part II: Flajolet Martin - James Green</title>
+        <link rel="stylesheet" href="../../css/variables.css" />
+        <link rel="stylesheet" href="../../css/default.css" />
+        <link rel="stylesheet" href="../../css/syntax.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../../">James Tadley Green</a>
+            </div>
+            <nav>
+                <a href="../../">Home</a>
+                <a href="../../about.html">About</a>
+                <a href="../../posts.html">Posts</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <h1 class="title">Part II: Flajolet Martin</h1>
+            <section class="header">
+    <ol class="post-info">
+        
+            <li>
+                Last updated  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"></path>
+</svg>
+
+            </li>
+            <li>
+                4 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+
+            </li>
+            <li>
+                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"></path>
+</svg>
+
+            </li>
+            <li>
+               #<a class="tag" href="../../tags/maths.html">maths</a> #<a class="tag" href="../../tags/algorithms.html">algorithms</a> #<a class="tag" href="../../tags/haskell.html">haskell</a> #<a class="tag" href="../../tags/proofs.html">proofs</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"></path>
+</svg>
+
+            </li>
+        
+    </ol>
+</section>
+
+            <link rel="stylesheet" href="../../css/toc.css" />
+<table class="toc">
+    <tbody>
+    
+        
+            <tr>
+                <td><a href="../../posts/hyper_log_log/1-probabilistic-counting.html">1</a></td>
+                <td><a href="../../posts/hyper_log_log/1-probabilistic-counting.html">Part I: Probabilistic Counting Algorithms</a></td>
+            </tr>
+        
+    
+        
+            <tr class="active-row">
+                <td><a href="../../posts/hyper_log_log/2-flajolet-martin.html">2</a></td>
+                <td><a href="../../posts/hyper_log_log/2-flajolet-martin.html">Part II: Flajolet Martin</a></td>
+            </tr>
+        
+    
+    </tbody>
+</table>
+
+<link rel="stylesheet" href="../../css/post.css" />
+<link rel="stylesheet" href="../../css/JetBrains-Mono.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<article>
+    <!-- <section class="header">
+    <ol class="post-info">
+        
+            <li>
+                Last updated  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"/>
+</svg>
+
+            </li>
+            <li>
+                1 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+</svg>
+
+            </li>
+            <li>
+                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"/>
+</svg>
+
+            </li>
+            <li>
+               #<a class="tag" href="/tags/maths.html">maths</a> #<a class="tag" href="/tags/algorithms.html">algorithms</a> #<a class="tag" href="/tags/haskell.html">haskell</a> #<a class="tag" href="/tags/proofs.html">proofs</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"/>
+</svg>
+
+            </li>
+        
+    </ol>
+</section>
+ -->
+    <section>
+        <h1 data-number="1" id="complexities"><span class="header-section-number">1</span> Complexities</h1>
+<p>Now we have the structure of <span class="math inline">\(R_n\)</span>, we can start to look at its limiting behavour. This
+allows us to work out the big-<span class="math inline">\(\mathcal{O}\)</span> behavour.</p>
+<h2 data-number="1.1" id="theorem"><span class="header-section-number">1.1</span> Theorem</h2>
+<p>The distribution of <span class="math inline">\(R_n\)</span> satisfies;</p>
+<ul>
+<li>If <span class="math inline">\(k&lt;\log_2\log n\)</span>, then
+<span class="math display">\[q_{n,k} = 1-\mathcal{O}(ne^{-\log^2 n})\]</span>,</li>
+<li>if <span class="math inline">\(k\leq \frac{3}{2} \log_2 n\)</span> then,
+<span class="math display">\[\begin{align}
+ q_{n,k} &amp;= \sum_{j=0} ((-1)^{v(j)}e^{-j\frac{n}{2^k}}) + \mathcal{O}(\frac{log^6 n}{\sqrt{n}})\\
+&amp;= \prod_{j=0} (1-e^{-2^j\frac{n}{2^k}}) + \mathcal{O}(\frac{log^6 n}{\sqrt{n}})
+\end{align}\]</span></li>
+<li>if <span class="math inline">\(k\leq \frac{3}{2} \log_2 n + \delta\)</span> for <span class="math inline">\(\delta\geq 0\)</span>, the tail of the
+distribution is exponential,
+<span class="math display">\[q_{n,k} = \mathcal{O}\left(\frac{2^{-\delta}}{\sqrt{n}}\right)\]</span>.</li>
+</ul>
+    </section>
+</article>
+
+
+        </main>
+
+        <footer>
+            © 2023, James Green
+        </footer>
+    </body>
+</html>
