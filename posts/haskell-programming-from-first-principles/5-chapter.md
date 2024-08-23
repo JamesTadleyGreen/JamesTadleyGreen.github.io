@@ -69,4 +69,21 @@ here
     ```
 
 1. Reverse the inequality
+1. 
+    ```haskell
+    module Arith3Broken where
 
+    main :: IO ()
+    main = do
+    print $ 1 + 2
+    putStrLn $ show 10
+    print $ negate (-1)
+    print $ (+) 0 blah
+      where blah = negate 1
+    ```
+
+# Type-Kwon-Do
+1. `h = f . g`
+1. `e = w . q`
+1. `xform (x, y) = (xz x, yz y)`
+1. `munge f g x = fst $ g (f x)`

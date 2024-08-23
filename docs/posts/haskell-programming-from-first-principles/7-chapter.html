@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Part IV: Basic Datatypes - James Green</title>
+        <title>Part VII: Functional Patterns - James Green</title>
         <link rel="stylesheet" href="../../css/variables.css" />
         <link rel="stylesheet" href="../../css/default.css" />
         <link rel="stylesheet" href="../../css/syntax.css" />
@@ -22,30 +22,30 @@
         </header>
 
         <main role="main">
-            <h1 class="title">Part IV: Basic Datatypes</h1>
+            <h1 class="title">Part VII: Functional Patterns</h1>
             <section class="header">
     <ol class="post-info">
         
             <li>
-                Last updated 2024-08-23 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                Last updated  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"></path>
 </svg>
 
             </li>
             <li>
-                6 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                3 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
 </svg>
 
             </li>
             <li>
-                79301a9 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"></path>
 </svg>
 
             </li>
             <li>
-               #<a class="tag" href="../../tags/haskell.html">haskell</a> #<a class="tag" href="../../tags/type.html">type</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+               #<a class="tag" href="../../tags/haskell.html">haskell</a> #<a class="tag" href="../../tags/polymorphic.html">polymorphic</a> #<a class="tag" href="../../tags/patterns.html">patterns</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"></path>
 </svg>
 
@@ -66,7 +66,7 @@
         
     
         
-            <tr class="active-row">
+            <tr>
                 <td><a href="../../posts/haskell-programming-from-first-principles/4-chapter.html">4</a></td>
                 <td><a href="../../posts/haskell-programming-from-first-principles/4-chapter.html">Part IV: Basic Datatypes</a></td>
             </tr>
@@ -87,7 +87,7 @@
         
     
         
-            <tr>
+            <tr class="active-row">
                 <td><a href="../../posts/haskell-programming-from-first-principles/7-chapter.html">7</a></td>
                 <td><a href="../../posts/haskell-programming-from-first-principles/7-chapter.html">Part VII: Functional Patterns</a></td>
             </tr>
@@ -109,25 +109,25 @@
     <ol class="post-info">
         
             <li>
-                Last updated 2024-08-23 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                Last updated  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"/>
 </svg>
 
             </li>
             <li>
-                3 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                1 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
 </svg>
 
             </li>
             <li>
-                79301a9 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"/>
 </svg>
 
             </li>
             <li>
-               #<a class="tag" href="/tags/haskell.html">haskell</a> #<a class="tag" href="/tags/type.html">type</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+               #<a class="tag" href="/tags/haskell.html">haskell</a> #<a class="tag" href="/tags/polymorphic.html">polymorphic</a> #<a class="tag" href="/tags/patterns.html">patterns</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"/>
 </svg>
 
@@ -139,44 +139,13 @@
     <section>
         <h1 data-number="1" id="chapter-exercises"><span class="header-section-number">1</span> Chapter Exercises</h1>
 <ol type="1">
-<li><pre class="haskel"><code>length :: [a] -&gt; Int
-</code></pre>
-<p><code>length</code> takes a list, of any type, and returns an <code>int</code>, representing the number of elements in the list.</p></li>
-<li><ol type="1">
-<li>5</li>
-<li>3</li>
-<li>2</li>
-<li>5</li>
+<li><ol start="4" type="a">
+<li></li>
 </ol></li>
-<li><p>The latter will error due to <code>length</code> returning an <code>int</code> instead of a <code>Fractional</code></p></li>
-<li><p><code>Prelude&gt; 6 `div` length [1, 2, 3]</code></p></li>
-<li><p>The type will be a <code>bool</code>, we’d expect a <code>True</code> result.</p></li>
-<li><p>The type again will be a <code>bool</code>, this time <code>False</code>.</p></li>
-<li><ol type="1">
-<li>This will work, and will return <code>True</code>.</li>
-<li>This won’t work as lists must be homogenous.</li>
-<li>This will return an <code>int</code>.</li>
-<li>This will return <code>False</code> since ‘b’ is not less than ‘a’.</li>
-<li>This will error as Haskell does not have truthy vales.</li>
+<li><ol start="2" type="a">
+<li></li>
 </ol></li>
-<li><div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ot">isPalindrome ::</span> (<span class="dt">Eq</span> a) <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> <span class="dt">Bool</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>isPalindrome x <span class="ot">=</span> x <span class="op">==</span> <span class="fu">reverse</span> x</span></code></pre></div></li>
-<li><div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ot">myAbs ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>myAbs x <span class="ot">=</span> <span class="kw">if</span> x <span class="op">&lt;</span> <span class="dv">0</span> <span class="kw">then</span> <span class="op">-</span>x <span class="kw">else</span> x</span></code></pre></div></li>
-<li><div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ot">f ::</span> (a, b) <span class="ot">-&gt;</span> (c, d) <span class="ot">-&gt;</span> ((b, d), (a, c))</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>f t1 t2 <span class="ot">=</span> ((<span class="fu">snd</span> t1, <span class="fu">snd</span> t2), (<span class="fu">fst</span> t1, <span class="fu">fst</span> t2))</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>f t1 t2 <span class="ot">=</span> <span class="fu">map</span> (<span class="fu">snd</span>, <span class="fu">fst</span>) (t1, t2)</span></code></pre></div></li>
-</ol>
-<h1 data-number="2" id="reading-syntax"><span class="header-section-number">2</span> Reading Syntax</h1>
-<ol type="1">
-<li>Replace quotes with backticks</li>
-<li>Lowercase the variable definition</li>
-<li>Put the list in brackets, e.g. <code>(x:xs)</code></li>
-<li>Lowercase the response, <code>a</code></li>
-</ol>
-<h1 data-number="3" id="matching-functions-and-types"><span class="header-section-number">3</span> Matching functions and types</h1>
-<ol type="1">
-<li><ol start="3" type="a">
+<li><ol start="4" type="a">
 <li></li>
 </ol></li>
 <li><ol start="2" type="a">
@@ -185,13 +154,6 @@
 <li><ol type="a">
 <li></li>
 </ol></li>
-<li><ol start="4" type="a">
-<li></li>
-</ol></li>
-</ol>
-<ol type="a">
-<li></li>
-<li></li>
 </ol>
     </section>
 </article>
