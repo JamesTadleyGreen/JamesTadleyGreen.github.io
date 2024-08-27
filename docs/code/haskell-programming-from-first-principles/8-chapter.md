@@ -47,15 +47,4 @@ tags: haskell,polymorphic,patterns
 
 # Fixing `dividedBy`
 
-:::{.code-include lexer="haskell" name="dividedBy"}
-:::
 
-# McCarthy 91 function
-
-:::{.code-include lexer="haskell" name="mc91"}
-:::
-
-# Numbers into words
-
-:::{.code-include lexer="haskell" name="numbersIntoWords"}
-:::
