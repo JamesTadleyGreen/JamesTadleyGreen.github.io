@@ -32,3 +32,50 @@ tags: haskell,array,list
 1. 
 :::{.code-include lexer="haskell" name="cypher"}
 :::
+
+# Writing our own standard functions
+
+1. 
+:::{.code-include lexer="haskell" name="myOr"}
+:::
+
+1. 
+:::{.code-include lexer="haskell" name="myAny"}
+:::
+
+1. 
+:::{.code-include lexer="haskell" name="myElem"}
+:::
+
+1. 
+:::{.code-include lexer="haskell" name="myReverse"}
+:::
+
+1. 
+:::{.code-include lexer="haskell" name="squish"}
+:::
+
+1. 
+:::{.code-include lexer="haskell" name="squishMap"}
+:::
+
+1. 
+:::{.code-include lexer="haskell" name="squishAgain"}
+:::
+
+1. 
+:::{.code-include lexer="haskell" name="myMaximumBy"}
+:::
+
+1. 
+:::{.code-include lexer="haskell" name="myMinimumBy"}
+:::
+
+1. 
+:::{.code-include lexer="haskell" name="myMaximum"}
+:::
+
+1. 
+:::{.code-include lexer="haskell" name="myMinimum"}
+:::
+

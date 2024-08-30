@@ -81,8 +81,40 @@ squishMap f (x : xs) = f x ++ squishMap f xs
 
 -- §
 
--- §squishMap
+-- §squishAgain
 squishAgain :: [[a]] -> [a]
 squishAgain = squishMap id
+
+-- §
+
+-- §myMaximumBy
+myMaximumBy :: (a -> a -> Ordering) -> [a] -> a
+myMaximumBy f (x : xs) = foldl (comp f) x xs
+  where
+    comp f a b
+      | f a b == LT = b
+      | otherwise = a
+
+-- §
+
+-- §myMinimumBy
+myMinimumBy :: (a -> a -> Ordering) -> [a] -> a
+myMinimumBy f = myMaximumBy (invert f)
+  where
+    invert comp a b
+      | comp a b == LT = GT
+      | otherwise = LT
+
+-- §
+
+-- §myMaximum
+myMaximum :: (Ord a) => [a] -> a
+myMaximum = myMaximumBy compare
+
+-- §
+
+-- §myMinimum
+myMinimum :: (Ord a) => [a] -> a
+myMinimum = myMinimumBy compare
 
 -- §

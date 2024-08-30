@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Part VI: Typeclasses - James Green</title>
+        <title>Part IX: Lists - James Green</title>
         <link rel="stylesheet" href="../../css/variables.css" />
         <link rel="stylesheet" href="../../css/default.css" />
         <link rel="stylesheet" href="../../css/syntax.css" />
@@ -22,30 +22,30 @@
         </header>
 
         <main role="main">
-            <h1 class="title">Part VI: Typeclasses</h1>
+            <h1 class="title">Part IX: Lists</h1>
             <section class="header">
     <ol class="post-info">
         
             <li>
-                Last updated 2024-08-23 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                Last updated  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"></path>
 </svg>
 
             </li>
             <li>
-                6 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                5 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
 </svg>
 
             </li>
             <li>
-                231403d <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"></path>
 </svg>
 
             </li>
             <li>
-               #<a class="tag" href="../../tags/haskell.html">haskell</a> #<a class="tag" href="../../tags/type.html">type</a> #<a class="tag" href="../../tags/typeclasses.html">typeclasses</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+               #<a class="tag" href="../../tags/haskell.html">haskell</a> #<a class="tag" href="../../tags/array.html">array</a> #<a class="tag" href="../../tags/list.html">list</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"></path>
 </svg>
 
@@ -59,7 +59,7 @@
     <tbody>
     
         
-            <tr>
+            <tr class="active-row">
                 <td><a href="../../posts/haskell-programming-from-first-principles/10-chapter.html">10</a></td>
                 <td><a href="../../posts/haskell-programming-from-first-principles/10-chapter.html">Part IX: Lists</a></td>
             </tr>
@@ -87,7 +87,7 @@
         
     
         
-            <tr class="active-row">
+            <tr>
                 <td><a href="../../posts/haskell-programming-from-first-principles/6-chapter.html">6</a></td>
                 <td><a href="../../posts/haskell-programming-from-first-principles/6-chapter.html">Part VI: Typeclasses</a></td>
             </tr>
@@ -130,25 +130,25 @@
     <ol class="post-info">
         
             <li>
-                Last updated 2024-08-23 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                Last updated  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"/>
 </svg>
 
             </li>
             <li>
-                2 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                1 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
 </svg>
 
             </li>
             <li>
-                231403d <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"/>
 </svg>
 
             </li>
             <li>
-               #<a class="tag" href="/tags/haskell.html">haskell</a> #<a class="tag" href="/tags/type.html">type</a> #<a class="tag" href="/tags/typeclasses.html">typeclasses</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+               #<a class="tag" href="/tags/haskell.html">haskell</a> #<a class="tag" href="/tags/array.html">array</a> #<a class="tag" href="/tags/list.html">list</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"/>
 </svg>
 
@@ -159,59 +159,29 @@
  -->
     <section>
         <h1 data-number="1" id="chapter-exercises"><span class="header-section-number">1</span> Chapter Exercises</h1>
+<h2 data-number="1.1" id="warm-up"><span class="header-section-number">1.1</span> Warm up</h2>
 <ol type="1">
-<li><ol start="3" type="a">
-<li></li>
-</ol></li>
-<li><ol start="2" type="a">
-<li></li>
-</ol></li>
-<li><ol type="a">
-<li></li>
-</ol></li>
-<li><ol start="3" type="a">
-<li></li>
-</ol></li>
-<li><ol type="a">
-<li></li>
-</ol></li>
+<li><div class="sourceCode" id="cb1" data-startFrom="5"><pre class="sourceCode numberSource numberLines haskell"><code class="sourceCode haskell" style="counter-reset: source-line 4;"><span id="cb1-5"><a href="#cb1-5"></a><span class="ot">stopVowelStop ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">String</span> <span class="ot">-&gt;</span> [(<span class="dt">Char</span>, <span class="dt">Char</span>, <span class="dt">Char</span>)]</span>
+<span id="cb1-6"><a href="#cb1-6"></a>stopVowelStop s1 s2 <span class="ot">=</span> [(a, b, c) <span class="op">|</span> a <span class="ot">&lt;-</span> s1, b <span class="ot">&lt;-</span> s2, c <span class="ot">&lt;-</span> s1]</span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="ot">stopVowelStopP ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">String</span> <span class="ot">-&gt;</span> [(<span class="dt">Char</span>, <span class="dt">Char</span>, <span class="dt">Char</span>)]</span>
+<span id="cb1-9"><a href="#cb1-9"></a>stopVowelStopP s1 s2 <span class="ot">=</span> <span class="fu">filter</span> (\(a, _, _) <span class="ot">-&gt;</span> a <span class="op">==</span> <span class="ch">'p'</span>) <span class="op">$</span> stopVowelStop s1 s2</span></code></pre></div></li>
+<li>The function works out the average number of characters per word in a given sentence.
+:::{.code-include lexer=“haskell” name=“seekritFunc”}
+:::</li>
 </ol>
-<h1 data-number="2" id="does-it-typecheck"><span class="header-section-number">2</span> Does it Typecheck?</h1>
+<h2 data-number="1.2" id="rewriting-using-folds"><span class="header-section-number">1.2</span> Rewriting using folds</h2>
 <ol type="1">
-<li>No, <code>bool</code> isn’t a subclass of <code>Show</code></li>
-<li>No, <code>Mood</code> doesn’t have the <code>Eq</code> typeclass</li>
-<li><ol type="a">
-<li>Only <code>Blah</code> or <code>Woot</code></li>
-<li>The type checker will complain that you can’t compare <code>Num</code> with <code>Mood</code></li>
-<li>They typechecker will complain that <code>Mood</code> doesn’t have an <code>Ord</code> instance</li>
-</ol></li>
-<li>This will typecheck, but <code>s1</code> isn’t a sentence as it needs an <code>Object</code> to fill the hole</li>
-</ol>
-<h1 data-number="3" id="given-a-datatype-declaration-what-can-we-do"><span class="header-section-number">3</span> Given a datatype declaration, what can we do?</h1>
-<ol type="1">
-<li>Needs type declaration</li>
-<li>Ok</li>
-<li>Ok</li>
-<li>No instance of <code>Ord</code> on <code>Papu</code></li>
-</ol>
-<h1 data-number="4" id="match-the-types"><span class="header-section-number">4</span> Match the Types</h1>
-<ol type="1">
-<li>This fails as we’re making the type more general</li>
-<li>This fails as we’re making the type more general</li>
-<li>This works as <code>Fractional</code> is a subclass of <code>Float</code></li>
-<li>This works as <code>RealFrac</code> is a subclass of <code>Fractional</code></li>
-<li>This will work as we had no specifcation on the type</li>
-<li>This will work for the same reason as above</li>
-<li>This won’t work as we’re generalising to the most generic type here</li>
-<li>This won’t work as <code>Num</code> is a superclass of <code>Int</code></li>
-<li>This will work as <code>Int</code> is a subclass of <code>Ord</code></li>
-<li>This won’t work as <code>Ord</code> is a superclass of <code>Char</code></li>
-<li>This won’t work as above</li>
-</ol>
-<h1 data-number="5" id="type-kwon-do"><span class="header-section-number">5</span> Type-Kwon-Do</h1>
-<ol type="1">
-<li><code>chk f a b = (f a) == b</code></li>
-<li><code>arith f i a = i + (f a)</code></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
 </ol>
     </section>
 </article>
