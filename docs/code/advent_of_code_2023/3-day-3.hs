@@ -1,14 +1,10 @@
 {- cabal:
-build-depends: base, text, string-qq, split
+build-depends: base, text, string-qq, split, attoparsec
 -}
 {-# LANGUAGE QuasiQuotes #-}
 
-module Days.Day03
-  ( day03
-  ) where
-
-import AOC (Solution(..))
 import Data.Char (isDigit)
+import Data.Attoparsec.Text
 import Data.String.QQ
 import Debug.Trace
 
@@ -18,7 +14,7 @@ main = do
     print part2 parseInput input
 
 
-data Engine = Engine { PartNumbers :: PartNumbers, Symbols :: Symbols }
+data Engine = Engine { partNumbers :: PartNumbers, symbols :: Symbols }
   deriving (Show)
 
 data PartNumbers = PartNumbers [(Int, (Int, Int))]
@@ -34,7 +30,7 @@ parseLine :: Parser (PartNumbers, Symbols)
 parseLine = (,) <$> parsePartNumbers <*> parseSymbols
 
 consolidate :: [(PartNumbers, Symbols)] -> Engine
-consolidate xs = Engine {PartNumbers = PartNumbers [fst i | i <-xs], Symbols = Symbols [snd i | i <-xs]}
+consolidate xs = Engine {partNumbers = PartNumbers [fst i | i <-xs], symbols = Symbols [snd i | i <-xs]}
 
 
 part1 :: [String] -> Maybe Int
