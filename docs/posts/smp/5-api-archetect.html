@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>API Archetect - James Green</title>
+        <link rel="stylesheet" href="../../css/variables.css" />
+        <link rel="stylesheet" href="../../css/default.css" />
+        <link rel="stylesheet" href="../../css/syntax.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../../">James Tadley Green</a>
+            </div>
+            <nav>
+                <a href="../../">Home</a>
+                <a href="../../about.html">About</a>
+                <a href="../../posts.html">Posts</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <h1 class="title">API Archetect</h1>
+            <section class="header">
+    <ol class="post-info">
+        
+            <li>
+                Last updated 2024-05-10 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"></path>
+</svg>
+
+            </li>
+            <li>
+                9 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+
+            </li>
+            <li>
+                028b011 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"></path>
+</svg>
+
+            </li>
+            <li>
+               #<a class="tag" href="../../tags/work.html">work</a> #<a class="tag" href="../../tags/smp.html">smp</a> #<a class="tag" href="../../tags/api.html">api</a> #<a class="tag" href="../../tags/python.html">python</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"></path>
+</svg>
+
+            </li>
+        
+    </ol>
+</section>
+
+            <link rel="stylesheet" href="../../css/toc.css" />
+<table class="toc">
+    <tbody>
+    
+        
+            <tr>
+                <td><a href="../../posts/smp/1-overview.html">1</a></td>
+                <td><a href="../../posts/smp/1-overview.html">SMP Group PLC</a></td>
+            </tr>
+        
+    
+        
+            <tr>
+                <td><a href="../../posts/smp/2-pack-analysis.html">2</a></td>
+                <td><a href="../../posts/smp/2-pack-analysis.html">Pack Analysis</a></td>
+            </tr>
+        
+    
+        
+            <tr>
+                <td><a href="../../posts/smp/3-pack-scanning.html">3</a></td>
+                <td><a href="../../posts/smp/3-pack-scanning.html">Pack Scanning</a></td>
+            </tr>
+        
+    
+        
+            <tr>
+                <td><a href="../../posts/smp/4-artwork-solution.html">4</a></td>
+                <td><a href="../../posts/smp/4-artwork-solution.html">Artwork Solution</a></td>
+            </tr>
+        
+    
+        
+            <tr class="active-row">
+                <td><a href="../../posts/smp/5-api-archetect.html">5</a></td>
+                <td><a href="../../posts/smp/5-api-archetect.html">API Archetect</a></td>
+            </tr>
+        
+    
+    </tbody>
+</table>
+
+<link rel="stylesheet" href="../../css/post.css" />
+<link rel="stylesheet" href="../../css/JetBrains-Mono.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<article>
+    <!-- <section class="header">
+    <ol class="post-info">
+        
+            <li>
+                Last updated 2024-05-10 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"/>
+</svg>
+
+            </li>
+            <li>
+                6 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+</svg>
+
+            </li>
+            <li>
+                028b011 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"/>
+</svg>
+
+            </li>
+            <li>
+               #<a class="tag" href="/tags/work.html">work</a> #<a class="tag" href="/tags/smp.html">smp</a> #<a class="tag" href="/tags/api.html">api</a> #<a class="tag" href="/tags/python.html">python</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"/>
+</svg>
+
+            </li>
+        
+    </ol>
+</section>
+ -->
+    <section>
+        <h1 data-number="1" id="the-problem"><span class="header-section-number">1</span> The Problem</h1>
+<p>Before I joined SMP, there were a scattering of technology projects across the business
+mainly in individual python scripts, excel workbooks, or jupyter notebooks.
+Whilst there was a lot of good work in these files, the disjoint nature of their
+locations resulted in many lost efficiencies.</p>
+<p>Having a centralised policy solves many of the above issues.</p>
+<h1 data-number="2" id="the-solution"><span class="header-section-number">2</span> The Solution</h1>
+<p>Whilst there were some very bright people working on several projects, none had any
+experience with git or other version control system. Once I introduced this, we had to
+go through several rounds of training to get people comfortable with using it in a
+daily capacity.</p>
+<p>Unsurprisingly, due to the disjoint nature mentioned above, there was a lot of
+repetition or solving the same problem in different ways. Together with the team, we
+settled on using python as our main language, due to the existing knowledge within the
+business. Additionally, due to they myriad of systems we have to interact with, an API
+seemed like the natural choice for interaction.</p>
+<p>I chose <a href="https://flask.palletsprojects.com/en/3.0.x/">Flask</a> as the framework, due to
+personal experience. I think if I were to repeat the experience I might use
+<a href="https://fastapi.tiangolo.com/">Fast API</a> due to its more expansive boilerplating.
+Very quickly we were up-and-running, with a live and dev server within our VPN network.</p>
+<h1 data-number="3" id="queuing-framework"><span class="header-section-number">3</span> Queuing Framework</h1>
+<p>Very quickly we had endpoints that very not very performant (through no fault of our
+own), one example would be label generation. Creating labels might take c. 1 second via
+API, and for some of our larger jobs we had to generate over 6000 labels! Having a job
+run on the API for an hour and a half isn’t tenable. Firstly, we only have a certain
+amount of workers, and this will hold one of them for an extended period. Secondly,
+we have auto refresh of workers that spend too long on a task, setting this timeout to
+longer than an hour means any workers who ‘get stuck’, have to wait a very long time to
+have their resources freed up again.</p>
+<p>The solution I settled on was to use <a href="https://docs.celeryq.dev/en/stable/">Celery</a>.
+This allowed us to ‘offload’ long running tasks to celery workers, which could take as
+long as needed to complete their tasks without impacting our flask server. Most of the
+API’s function was to send data between systems, so, we didn’t need to query a result
+of a task often. We simply needed to be confident that a task would complete at some
+point.</p>
+<h1 data-number="4" id="reporting"><span class="header-section-number">4</span> Reporting</h1>
+<p>There are a couple of simple solutions we used to ensure our API was running smoothly,
+we utilised <a href="https://flask-monitoringdashboard.readthedocs.io/en/latest/">Flask Monitoring Dashboard</a>
+to see a whole heap of information. The part I found most useful was the automatic
+profiling spread across differing commits, this allowed us to empirically show that as
+we added more commits, the speed of our API improved.</p>
+<p>To achieve similar functionality within Celery, we used
+<a href="https://flower.readthedocs.io/en/latest/">Flower</a>, unfortunately this doesn’t have the
+same built in profiling so we had to create our own simple solution.</p>
+<p>For a heartbeat check, we set up a raspberry pi in a corner of our office, and had it
+ping a simple endpoint to ensure that the server is up and running. This was the
+simplest solution we could think of that had the best time to payoff ratio. There was a
+risk of double failure as the raspberry pi is on the same network as the API, but this
+was a trade-off we were willing to accept. At time of writing, we’ve never had this
+process fail.</p>
+<h1 data-number="5" id="moving-forward"><span class="header-section-number">5</span> Moving Forward</h1>
+<p>Visibility and reporting of our API could be improved, utilising tools such as
+<a href="https://prometheus.io/">Prometheus</a> and <a href="https://grafana.com/">Grafana</a> would allow us
+to more easily understand the scope of any issues before our clients are aware of them.</p>
+    </section>
+</article>
+
+
+        </main>
+
+        <footer>
+            © 2023, James Green
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Part V: Prime Numbers - James Green</title>
+        <link rel="stylesheet" href="../../css/variables.css" />
+        <link rel="stylesheet" href="../../css/default.css" />
+        <link rel="stylesheet" href="../../css/syntax.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../../">James Tadley Green</a>
+            </div>
+            <nav>
+                <a href="../../">Home</a>
+                <a href="../../about.html">About</a>
+                <a href="../../posts.html">Posts</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <h1 class="title">Part V: Prime Numbers</h1>
+            <section class="header">
+    <ol class="post-info">
+        
+            <li>
+                Last updated 2024-05-06 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"></path>
+</svg>
+
+            </li>
+            <li>
+                7 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+
+            </li>
+            <li>
+                3720ba4 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"></path>
+</svg>
+
+            </li>
+            <li>
+               #<a class="tag" href="../../tags/maths.html">maths</a> #<a class="tag" href="../../tags/algorithms.html">algorithms</a> #<a class="tag" href="../../tags/golf.html">golf</a> #<a class="tag" href="../../tags/python.html">python</a> #<a class="tag" href="../../tags/prime.html">prime</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"></path>
+</svg>
+
+            </li>
+        
+    </ol>
+</section>
+
+            <link rel="stylesheet" href="../../css/toc.css" />
+<table class="toc">
+    <tbody>
+    
+        
+            <tr>
+                <td><a href="../../posts/code_golf/1-code-golf.html">1</a></td>
+                <td><a href="../../posts/code_golf/1-code-golf.html">Part I: Code Golf</a></td>
+            </tr>
+        
+    
+        
+            <tr>
+                <td><a href="../../posts/code_golf/2-fibonacci.html">2</a></td>
+                <td><a href="../../posts/code_golf/2-fibonacci.html">Part II: Fibonacci</a></td>
+            </tr>
+        
+    
+        
+            <tr>
+                <td><a href="../../posts/code_golf/3-fractions.html">3</a></td>
+                <td><a href="../../posts/code_golf/3-fractions.html">Part III: Fractions</a></td>
+            </tr>
+        
+    
+        
+            <tr>
+                <td><a href="../../posts/code_golf/4-divisors.html">4</a></td>
+                <td><a href="../../posts/code_golf/4-divisors.html">Part IV: Divisors</a></td>
+            </tr>
+        
+    
+        
+            <tr class="active-row">
+                <td><a href="../../posts/code_golf/5-prime-numbers.html">5</a></td>
+                <td><a href="../../posts/code_golf/5-prime-numbers.html">Part V: Prime Numbers</a></td>
+            </tr>
+        
+    
+        
+            <tr>
+                <td><a href="../../posts/code_golf/6-quine.html">6</a></td>
+                <td><a href="../../posts/code_golf/6-quine.html">Part VI: Quine</a></td>
+            </tr>
+        
+    
+    </tbody>
+</table>
+
+<link rel="stylesheet" href="../../css/post.css" />
+<link rel="stylesheet" href="../../css/JetBrains-Mono.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<article>
+    <!-- <section class="header">
+    <ol class="post-info">
+        
+            <li>
+                Last updated 2024-05-06 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"/>
+</svg>
+
+            </li>
+            <li>
+                4 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+</svg>
+
+            </li>
+            <li>
+                3720ba4 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"/>
+</svg>
+
+            </li>
+            <li>
+               #<a class="tag" href="/tags/maths.html">maths</a> #<a class="tag" href="/tags/algorithms.html">algorithms</a> #<a class="tag" href="/tags/golf.html">golf</a> #<a class="tag" href="/tags/python.html">python</a> #<a class="tag" href="/tags/prime.html">prime</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"/>
+</svg>
+
+            </li>
+        
+    </ol>
+</section>
+ -->
+    <section>
+        <h1 data-number="1" id="the-problem"><span class="header-section-number">1</span> The Problem</h1>
+<p>Print all of the prime numbers from 1 to 100.</p>
+<ul>
+<li>2,3,5,7,…</li>
+</ul>
+<h1 data-number="2" id="attempts"><span class="header-section-number">2</span> Attempts</h1>
+<h2 data-number="2.1" id="first-attempt"><span class="header-section-number">2.1</span> First attempt</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>,<span class="dv">99</span>):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span> <span class="kw">not</span>[j <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>,i) <span class="cf">if</span> i<span class="op">%</span>j<span class="op">&lt;</span><span class="dv">1</span>]:<span class="bu">print</span>(i)</span></code></pre></div>
+<blockquote>
+<p>70 characters.</p>
+</blockquote>
+<p>A nice first attempt, there’s a couple of tricks like <code>range(2,i)if</code> and so on that save
+minimal characters. But to make any real progress we need a new approach.</p>
+<p>We only checked up to <code>99</code> since we know 100 isn’t prime and it saves a character.</p>
+<h2 data-number="2.2" id="pseudo-primality-testing"><span class="header-section-number">2.2</span> Pseudo-primality testing</h2>
+<p>Since we’re only interested in numbers below 100, we can use some <em>odd</em> primality
+testing. Did you know that for all primes less than <code>300</code> we can check if the number is
+either <code>2</code> or <span class="math inline">\(2^j mod 2\)</span> is <code>2</code>. I didn’t, but <a href="https://stackoverflow.com/questions/30216485/what-is-the-best-way-to-check-if-a-number-is-prime-in-python">this stackoverflow post</a>
+did.</p>
+<p>I believe it’s based of <a href="https://en.wikipedia.org/wiki/Lucas_pseudoprime">Lucas pseudoprime</a>’s,
+but I haven’t bothered reading into it more.</p>
+<p>So our solution becomes:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>[<span class="bu">print</span>(j)<span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">98</span>)<span class="cf">if</span> <span class="dv">2</span><span class="er">in</span>[j,<span class="dv">2</span><span class="op">**</span>j<span class="op">%</span>j]]</span></code></pre></div>
+<blockquote>
+<p>46 characters.</p>
+</blockquote>
+<h2 data-number="2.3" id="looking-online-cheating"><span class="header-section-number">2.3</span> Looking online (cheating)</h2>
+<p>In looking up the <a href="#pseudo-primality-testing">prime testing</a> online I found
+<a href="https://codegolf.stackexchange.com/questions/5977/list-of-primes-under-a-million">this stackoverflow</a>
+and adapted one of the solutions to save some additional characters.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>k<span class="op">=</span>P<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> k<span class="op">&lt;</span><span class="dv">99</span>:P<span class="op">%</span>k<span class="op">&gt;</span><span class="dv">0</span><span class="op">==</span><span class="bu">print</span>(k)<span class="op">;</span>P<span class="op">*=</span>k<span class="op">*</span>k<span class="op">;</span>k<span class="op">+=</span><span class="dv">1</span></span></code></pre></div>
+<p>This is a genius solution which the author on stackoverflow explains much more elegantly
+than I could.</p>
+<blockquote>
+<p>44 characters.</p>
+</blockquote>
+<h2 data-number="2.4" id="future-thoughts"><span class="header-section-number">2.4</span> Future thoughts</h2>
+<p>Because 100 is such a low bound, it feels like we might be able to encode all the primes
+in a hard-coded string and simply ‘split them out’.</p>
+<p>My thought is we embed the differences between the primes, as they’re all less than 10,
+then print based on these differences. Something like the below.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>j<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span><span class="st">'2122424'</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> b:j<span class="op">+=</span><span class="bu">int</span>(i)<span class="op">;</span><span class="bu">print</span>(j)</span></code></pre></div>
+<h1 data-number="3" id="measuring-success"><span class="header-section-number">3</span> Measuring success</h1>
+<p>I cheated a little but this only saved me two characters, I wouldn’t have found this
+solution by myself, but it’s close enough I don’t feel too bad.</p>
+    </section>
+</article>
+
+
+        </main>
+
+        <footer>
+            © 2023, James Green
+        </footer>
+    </body>
+</html>

@@ -82,6 +82,7 @@ blockquote {
 pre.numberSource {
     margin-left: 0rem;
     border-left: none;
+    padding-left: 0;
 }
 
 pre.numberSource code > span > a:first-child::before{
@@ -89,8 +90,12 @@ pre.numberSource code > span > a:first-child::before{
     background-color: var(--background-secondary);
     text-decoration: none;
     border-right: 1px solid #5A5F82;
-    padding-left: 2.5rem;
+    width: 2em;
 }
+pre.numberSource code > span {
+    left : 0em;
+}
+
 /* For code syntax highlighting */
 div.sourceCode {
   border-radius: 5px;
