@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Part VII: Functional Patterns - James Green</title>
+        <title>Part XII: Signaling Adversity - James Green</title>
         <link rel="stylesheet" href="../../css/variables.css" />
         <link rel="stylesheet" href="../../css/default.css" />
         <link rel="stylesheet" href="../../css/syntax.css" />
@@ -22,30 +22,30 @@
         </header>
 
         <main role="main">
-            <h1 class="title">Part VII: Functional Patterns</h1>
+            <h1 class="title">Part XII: Signaling Adversity</h1>
             <section class="header">
     <ol class="post-info">
         
             <li>
-                Last updated 2024-08-25 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                Last updated 2024-09-05 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"></path>
 </svg>
 
             </li>
             <li>
-                7 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                4 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
 </svg>
 
             </li>
             <li>
-                bd3504b <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                414795a <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"></path>
 </svg>
 
             </li>
             <li>
-               #<a class="tag" href="../../tags/haskell.html">haskell</a> #<a class="tag" href="../../tags/polymorphic.html">polymorphic</a> #<a class="tag" href="../../tags/patterns.html">patterns</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+               #<a class="tag" href="../../tags/haskell.html">haskell</a> #<a class="tag" href="../../tags/kinds.html">kinds</a> #<a class="tag" href="../../tags/processing.html">processing</a> #<a class="tag" href="../../tags/data.html">data</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"></path>
 </svg>
 
@@ -73,7 +73,7 @@
         
     
         
-            <tr>
+            <tr class="active-row">
                 <td><a href="../../posts/haskell-programming-from-first-principles/12-chapter.html">12</a></td>
                 <td><a href="../../posts/haskell-programming-from-first-principles/12-chapter.html">Part XII: Signaling Adversity</a></td>
             </tr>
@@ -108,7 +108,7 @@
         
     
         
-            <tr class="active-row">
+            <tr>
                 <td><a href="../../posts/haskell-programming-from-first-principles/7-chapter.html">7</a></td>
                 <td><a href="../../posts/haskell-programming-from-first-principles/7-chapter.html">Part VII: Functional Patterns</a></td>
             </tr>
@@ -144,25 +144,25 @@
     <ol class="post-info">
         
             <li>
-                Last updated 2024-08-25 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                Last updated 2024-09-05 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"/>
 </svg>
 
             </li>
             <li>
-                3 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                1 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
 </svg>
 
             </li>
             <li>
-                bd3504b <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                414795a <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"/>
 </svg>
 
             </li>
             <li>
-               #<a class="tag" href="/tags/haskell.html">haskell</a> #<a class="tag" href="/tags/polymorphic.html">polymorphic</a> #<a class="tag" href="/tags/patterns.html">patterns</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+               #<a class="tag" href="/tags/haskell.html">haskell</a> #<a class="tag" href="/tags/kinds.html">kinds</a> #<a class="tag" href="/tags/processing.html">processing</a> #<a class="tag" href="/tags/data.html">data</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"/>
 </svg>
 
@@ -173,54 +173,17 @@
  -->
     <section>
         <h1 data-number="1" id="chapter-exercises"><span class="header-section-number">1</span> Chapter Exercises</h1>
+<h2 data-number="1.1" id="determine-the-kinds"><span class="header-section-number">1.1</span> Determine the kinds</h2>
 <ol type="1">
-<li><ol start="4" type="a">
-<li></li>
-</ol></li>
-<li><ol start="2" type="a">
-<li></li>
-</ol></li>
-<li><ol start="4" type="a">
-<li></li>
-</ol></li>
-<li><ol start="2" type="a">
-<li></li>
-</ol></li>
-<li><ol type="a">
-<li></li>
-</ol></li>
+<li><code>a</code> is of kind <code>*</code></li>
+<li><code>a</code> is of kind <code>*</code>, <code>f</code> is of kind <code>* -&gt; *</code></li>
 </ol>
-<h1 data-number="2" id="lets-write-code"><span class="header-section-number">2</span> Let’s write code</h1>
+<h2 data-number="1.2" id="string-processing"><span class="header-section-number">1.2</span> String processing</h2>
 <ol type="1">
-<li><ol type="a">
-<li><div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">   getDigit ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>   getDigit <span class="dv">0</span> n <span class="ot">=</span> n <span class="ot">`mod`</span> <span class="dv">10</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>   getDigit i n <span class="ot">=</span> getDigit (i<span class="op">-</span><span class="dv">1</span>) <span class="op">$</span> n <span class="ot">`div`</span> <span class="dv">10</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>tensDigit <span class="ot">=</span> getDigit <span class="dv">1</span></span></code></pre></div></li>
-<li><p>Yes, ’cause I didn’t use it</p></li>
-<li><p><code class="sourceCode haskell">hunsDigit <span class="ot">=</span> getDigit <span class="dv">2</span></code></p></li>
-</ol></li>
-<li><div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ot">foldBool1 ::</span> a <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">Bool</span> <span class="ot">-&gt;</span> a</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>foldBool1 x y b <span class="ot">=</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">case</span> b <span class="kw">of</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">True</span>  <span class="ot">-&gt;</span> x</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">False</span> <span class="ot">-&gt;</span> y</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ot">foldBool2 ::</span> a <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">Bool</span> <span class="ot">-&gt;</span> a</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>foldBool2 x y b</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">|</span> b <span class="ot">=</span> x</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="op">|</span> <span class="fu">otherwise</span> <span class="ot">=</span> y</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ot">foldBool3 ::</span> a <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">Bool</span> <span class="ot">-&gt;</span> a</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>foldBool3 x _ <span class="dt">True</span> <span class="ot">=</span> x</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>foldBool3 _ y <span class="dt">False</span> <span class="ot">=</span> y</span></code></pre></div></li>
-<li><div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ot">g ::</span> (a <span class="ot">-&gt;</span> b) <span class="ot">-&gt;</span> (a, c) <span class="ot">-&gt;</span> (b, c)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>g f (a, c) <span class="ot">=</span> (f a, c)</span></code></pre></div></li>
-<li>Nothing to do</li>
-<li><code class="sourceCode haskell">roundTrip <span class="ot">=</span> <span class="fu">read</span> <span class="op">.</span> <span class="fu">show</span></code></li>
-<li><code>roundTrip x :: b</code></li>
+<li><p>:::{.code-include lexer=“haskell” name=“replaceThe”}
+:::</p></li>
+<li><p>:::{.code-include lexer=“haskell” name=“countTheBeforeVowel”}
+:::</p></li>
 </ol>
     </section>
 </article>
