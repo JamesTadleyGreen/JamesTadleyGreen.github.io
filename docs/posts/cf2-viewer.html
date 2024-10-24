@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CF2 Viewer - James Green</title>
+        <link rel="stylesheet" href="../css/variables.css" />
+        <link rel="stylesheet" href="../css/default.css" />
+        <link rel="stylesheet" href="../css/syntax.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../">James Tadley Green</a>
+            </div>
+            <nav>
+                <a href="../">Home</a>
+                <a href="../about.html">About</a>
+                <a href="../posts.html">Posts</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <h1 class="title">CF2 Viewer</h1>
+            <section class="header">
+    <ol class="post-info">
+        
+            <li>
+                Last updated 2024-10-24 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"></path>
+</svg>
+
+            </li>
+            <li>
+                27 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+
+            </li>
+            <li>
+                c9cc7b0 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"></path>
+</svg>
+
+            </li>
+            <li>
+               #<a class="tag" href="../tags/work.html">work</a> #<a class="tag" href="../tags/cf2.html">cf2</a> #<a class="tag" href="../tags/pdf.html">pdf</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"></path>
+</svg>
+
+            </li>
+        
+    </ol>
+</section>
+
+            <link rel="stylesheet" href="../css/post.css" />
+<link rel="stylesheet" href="../css/JetBrains-Mono.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<article>
+    <!-- <section class="header">
+    <ol class="post-info">
+        
+            <li>
+                Last updated 2024-10-24 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"/>
+</svg>
+
+            </li>
+            <li>
+                24 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+</svg>
+
+            </li>
+            <li>
+                c9cc7b0 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"/>
+</svg>
+
+            </li>
+            <li>
+               #<a class="tag" href="/tags/work.html">work</a> #<a class="tag" href="/tags/cf2.html">cf2</a> #<a class="tag" href="/tags/pdf.html">pdf</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"/>
+</svg>
+
+            </li>
+        
+    </ol>
+</section>
+ -->
+    <section>
+        <h1 data-number="1" id="the-problem"><span class="header-section-number">1</span> The problem</h1>
+<p>At work, we need to view <code>.cf2</code> files. It turns out this might be a slightly esoteric
+file type, as I couldn’t find a working viewer online, and the only python module that
+came close to viewing the file was <a href="https://pypi.org/project/aspose-cad/">Aspose.CAD</a>.
+Unfortunately, this option was not fit for use for us. Firstly, it’s copywritten.
+Secondly, even if it wasn’t, it applies a watermark to the file.</p>
+<blockquote>
+<p>So, how do we programmatically view <code>.cf2</code> files?</p>
+</blockquote>
+<p>I guess we have to write it ourselves.</p>
+<h1 data-number="2" id="exploring-the-problem"><span class="header-section-number">2</span> Exploring the problem</h1>
+<h2 data-number="2.1" id="the-file"><span class="header-section-number">2.1</span> The file</h2>
+<p>The first piece of good news is that <code>.cf2</code> files are plaintext, meaning we can open
+them in notepad (or similar) and view the contents of the file.</p>
+<p>The other piece of good news is the file is kinda readable. We can have a first stab
+at what the lines might mean without knowing <em>any</em> specification.</p>
+<p>An example file is below:</p>
+<pre><code>$BOF
+V2
+ORDER
+END
+MAIN,Layout
+UM
+LL,-155.526,183.405,
+UR,1419.474,1250.405,
+SCALE,1,1,
+C,AGD,-155.526,183.405,0,1,1
+END
+SUB,AGD
+L,2,1,0,34.500,74.500,34.500,222.500,0,0.000
+L,2,1,0,34.500,222.500,244.500,222.500,0,0.000
+L,2,1,0,244.500,222.500,244.500,74.500,0,0.000
+L,2,1,0,244.500,74.500,34.500,74.500,0,0.000
+END
+$EOF</code></pre>
+<h2 data-number="2.2" id="the-specification"><span class="header-section-number">2.2</span> The Specification</h2>
+<p>Crucially, I found a sample (although incomplete) specification on
+<a href="https://forums.autodesk.com/t5/autocad-forum/is-there-a-way-to-write-a-command-to-convert-or-save-autocad/td-p/12748340">this forum.</a>
+I have no idea how this was from this year, as every other forum post is from a decade
+ago. Incredibly lucky!</p>
+<p>As I said above, the spec isn’t complete and has some errors. I’ve managed to figure
+these out through some trial and error.</p>
+<h3 data-number="2.2.1" id="filling-in-the-gaps"><span class="header-section-number">2.2.1</span> Filling in the gaps</h3>
+<p>The hardest part for me to figure out was arcs, you can see the specification is not
+complete, stating that the structure is of the form:</p>
+<pre><code>A, p, t, at, sx, sy, ex, ey, cx, cy, =/-1, nbridges, wbridges</code></pre>
+<p>But, gives no explanation for what <code>cx</code>, <code>cy</code>, or <code>=/-1</code> means.</p>
+<p>It turns out, to describe an arc, it represents:
+- <code>A</code> meaning arc
+- <code>p</code> representing the pointage of the line
+- <code>t</code> representing the line style
+- <code>at</code> used for arrows
+- <code>sx</code> the <code>x</code> start coordinate for the arc
+- <code>sy</code> the <code>y</code> start coordinate for the arc
+- <code>ex</code> the <code>x</code> end coordinate for the arc
+- <code>ey</code> the <code>y</code> end coordinate for the arc
+- <code>cx</code> the <code>x</code> coordinate representing the centre of the circle the arc lies upon
+- <code>cy</code> the <code>y</code> coordinate representing the centre of the circle the arc lies upon
+- <code>=/-1</code> the direction for the arc to be drawn (clockwise or anticlockwise)
+- <code>nbridges</code> the number of bridges in the line.
+- <code>wbridges</code> the width of the bridges in mm.</p>
+<h3 data-number="2.2.2" id="still-unknowns"><span class="header-section-number">2.2.2</span> Still unknowns</h3>
+<p>The spec doesn’t go into enough detail, and I don’t have enough example files for all
+of the file’s logic.</p>
+<p>For example; there is a parameters file, that should allow client information to be read
+into the file. I haven’t even starting looking at how this would work.</p>
+<p>Also, arrows on lines, this uses the auxiliary line style, again I haven’t starting
+looking at this.</p>
+<p>Finally, scale, I’ve starting using this parameter. But, I don’t have any example files
+to test my expected output against, so it’s very incomplete / not implemented.</p>
+<h1 data-number="3" id="the-solution"><span class="header-section-number">3</span> The solution</h1>
+<h2 data-number="3.1" id="cf2-parser"><span class="header-section-number">3.1</span> CF2 Parser</h2>
+<h3 data-number="3.1.1" id="cf2-class"><span class="header-section-number">3.1.1</span> CF2 class</h3>
+<p>This is the meat of the module. I’ve structured the module and logic taking inspiration
+from <code>pandas</code> <code>DataFrame</code>. As such, you can either parse a <code>cf2</code> file directly, or
+construct one from the ground up. Also, you have the ability to combine <code>cf2</code>s. At some
+point I’ll add an equality or difference measure as well.</p>
+<p>The <code>CF2</code> class is of the structure:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CF2:</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        dimensions: <span class="bu">tuple</span>[<span class="bu">tuple</span>[<span class="bu">int</span>, <span class="bu">int</span>], <span class="bu">tuple</span>[<span class="bu">int</span>, <span class="bu">int</span>]],</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        parameters: <span class="bu">dict</span> <span class="op">|</span> <span class="va">None</span> <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        scale: <span class="bu">tuple</span>[<span class="bu">int</span>, <span class="bu">int</span>] <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">1</span>),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        routine: <span class="bu">list</span>[Line, Arc, Text, SubroutineCall] <span class="op">|</span> <span class="va">None</span> <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        subroutines: <span class="bu">list</span>[Subroutine] <span class="op">|</span> <span class="va">None</span> <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    ):</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.dimensions <span class="op">=</span> dimensions</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.parameters <span class="op">=</span> parameters <span class="cf">if</span> parameters <span class="cf">else</span> {}</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.scale <span class="op">=</span> scale</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.routine <span class="op">=</span> routine <span class="cf">if</span> routine <span class="cf">else</span> []</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.subroutines <span class="op">=</span> subroutines <span class="cf">if</span> subroutines <span class="cf">else</span> []</span></code></pre></div>
+<p>With sensible defaults.</p>
+<p>The key method, of this class, is the <code>flatten</code> method, this converts subroutines to a
+‘flat’ routine. Meaning instead of any subroutine calls, we instead have a super long
+list of instructions.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> flatten(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">list</span>[Line, Arc, Text]:</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    output <span class="op">=</span> []</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> subroutine <span class="kw">in</span> <span class="va">self</span>.routine:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">isinstance</span>(subroutine, SubroutineCall):</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> instruction <span class="kw">in</span> [</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                i <span class="cf">for</span> i <span class="kw">in</span> <span class="va">self</span>.subroutines <span class="cf">if</span> i.name <span class="op">==</span> subroutine.name</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>            ][<span class="dv">0</span>].instructions:</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                output.append(instruction.adjust(subroutine))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>            output.append(subroutine)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> output</span></code></pre></div>
+<p>The <code>isinstance</code> check, checks if the ‘instruction’ in a <code>routine</code> is a <code>SubroutineCall</code>,
+or is instead an instance of <code>Line</code>, <code>Arc</code>, or <code>Text</code>. ‘Flattening’ replaces those
+<code>SubroutineCalls</code> with their ‘instructions’ (of type <code>Line</code>, <code>Arc</code>, or <code>Text</code>).</p>
+<h3 data-number="3.1.2" id="lines-arcs-and-text"><span class="header-section-number">3.1.2</span> Lines, arcs, and text</h3>
+<p>All of these classes have similar methods, at some point I’ll move them to be subclassed
+from a more general parent. At this current moment in time, one can consider these
+objects to be of the form:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Object(<span class="op">*</span>args):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>():</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.<span class="op">*</span>args <span class="op">=</span> <span class="op">*</span>args</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> adjust(<span class="op">*</span>args):</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        handle_translation()</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        handle_rotation()</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        handle_scaling()</span></code></pre></div>
+<h3 data-number="3.1.3" id="subroutines"><span class="header-section-number">3.1.3</span> Subroutines</h3>
+<p>There are two confusingly similar concepts here, the <code>Subroutine</code> and the
+<code>SubroutineCall</code>, these differ as below:
+- <code>Subroutine</code>: A list of instructions of the form <code>Line</code>, <code>Arc</code>, or <code>Text</code>, with an
+associated name. It’s not in the CF2 specification, but my construction allows for
+subroutines to call other subroutines with a <code>SubroutineCall</code>, this isn’t allowed in
+the spec.
+- <code>SubroutineCall</code>: A call within the <code>Routine</code> defining at what point to execute a
+named <code>Subroutine</code></p>
+<h3 data-number="3.1.4" id="adjust"><span class="header-section-number">3.1.4</span> Adjust</h3>
+<p>The adjust logic for each class handles translation, rotation, and scaling. For each
+of the classes this is slightly different albeit very related. For example, <code>Arc</code>s need
+to also move their centre point when translating, but <code>Line</code>s don’t have this as a
+property.</p>
+<h2 data-number="3.2" id="pdf-output"><span class="header-section-number">3.2</span> PDF output</h2>
+<h3 data-number="3.2.1" id="lines-arcs-and-text-1"><span class="header-section-number">3.2.1</span> Lines, arcs, and text</h3>
+<p>There are corresponding functions in <code>pycairo</code> for each of these classes.</p>
+<p>Line is very simple, we simply <code>move_to</code> the start of the line, and <code>line_to</code> the
+endpoint.</p>
+<p>Text is also simple, we <code>move_to</code> the location, <code>rotate</code> by the angle given, do a negative
+1 scaling in the y-axis (due to <code>pycairo</code>’s <a href="#dimensions">reversal of the axis</a> compared
+to the CF2 spec). Then revert this scaling once the text is placed. The size of text
+will be implemented in a future release.</p>
+<p>Arc is the only slightly difficult case, <code>pycairo</code> uses polar coordinates, whereas
+the CF2 spec uses the start, end, and centre of circle. So we need to convert this,
+using the below:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> convert_to_polar(arc: Arc) <span class="op">-&gt;</span> <span class="bu">tuple</span>[<span class="bu">float</span>, <span class="bu">float</span>, <span class="bu">float</span>]:</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    radius <span class="op">=</span> calculate_radius(arc.centre, arc.start)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    start_angle <span class="op">=</span> math.pi <span class="op">+</span> calculate_angle(</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        arc.centre, arc.start <span class="cf">if</span> arc.direction <span class="op">==</span> <span class="dv">1</span> <span class="cf">else</span> arc.end)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    end_angle <span class="op">=</span> math.pi <span class="op">+</span> calculate_angle(</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        arc.centre, arc.end <span class="cf">if</span> arc.direction <span class="op">==</span> <span class="dv">1</span> <span class="cf">else</span> arc.start)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> start_angle, end_angle, radius</span></code></pre></div>
+<p>Then we have a final edge case where the arc is a circle, and we’re done!</p>
+<h3 data-number="3.2.2" id="dimensions"><span class="header-section-number">3.2.2</span> Dimensions</h3>
+<p>To define the size of the artboard for the cutter we have the lower left and the
+upper right defined in the CF2 file. So we set the size of the PDF to be the difference
+of these two. Then translate the x and y-axes by the lower left coordinate (remembering
+the y-axis is reversed).</p>
+<p>Finally we invert the matrix <code>pycairo</code> uses, to align our axes.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>context.set_matrix(cairo.Matrix(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>))</span></code></pre></div>
+<h3 data-number="3.2.3" id="colours-and-styles"><span class="header-section-number">3.2.3</span> Colours and styles</h3>
+<p>Currently, we set sensible defaults for our colours, in the future I’ll add the ability
+to set one’s own colours via the command line. We have a very simple <code>dict</code> set up:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>LINE_TYPES <span class="op">=</span> {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    LineType.CUT: {<span class="st">&quot;rgb&quot;</span>: (<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="st">&quot;dash&quot;</span>: <span class="va">None</span>},</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    LineType.CREASE: {<span class="st">&quot;rgb&quot;</span>: (<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="st">&quot;dash&quot;</span>: [<span class="dv">10</span>, <span class="dv">5</span>]},</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    LineType.PERF: {<span class="st">&quot;rgb&quot;</span>: (<span class="dv">0</span>, <span class="fl">0.75</span>, <span class="dv">0</span>), <span class="st">&quot;dash&quot;</span>: [<span class="dv">2</span>, <span class="dv">2</span>]},</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    LineType.SCORE: {<span class="st">&quot;rgb&quot;</span>: (<span class="fl">0.75</span>, <span class="fl">0.75</span>, <span class="dv">0</span>), <span class="st">&quot;dash&quot;</span>: [<span class="dv">2</span>, <span class="dv">2</span>]},</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    LineType.UNKNOWN: {<span class="st">&quot;rgb&quot;</span>: (<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="st">&quot;dash&quot;</span>: <span class="va">None</span>},</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>The line width is set based upon the pointage defined for each instruction.</p>
+<h2 data-number="3.3" id="writing-cf2s"><span class="header-section-number">3.3</span> Writing CF2s</h2>
+<p>If we add to the CF2, or amend any of the existing geometry, we want to be able to
+write the new CF2 to a file for further use.
+### <code>__repr__</code>
+This is the key functionality, if we give every class a sensible <code>__repr__</code>, namely the
+representation of a line in the CF2, then, to output to CF2, all we do is write the
+<code>__repr__</code> to each class in the correct order.</p>
+<p>For example, the <code>__repr__</code> of an <code>Arc</code> is:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f&quot;A,</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>pointage<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>linetype<span class="sc">.</span>value<span class="sc">}</span><span class="ss">,0,</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>start[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>start[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>end[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>end[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>centre[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>centre[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>direction<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>nbridges<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>wbridges<span class="sc">}</span><span class="ss">&quot;</span></span></code></pre></div>
+<p>This looks little like confusing and a little gross, but it simplifies the remainder of
+our code.
+Let’s look at a <code>Subroutine</code>:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>.join(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        [<span class="ss">f&quot;SUB,</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss">&quot;</span>] <span class="op">+</span> [i.<span class="fu">__repr__</span>()</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                                <span class="cf">for</span> i <span class="kw">in</span> <span class="va">self</span>.instructions] <span class="op">+</span> [<span class="st">&quot;END&quot;</span>]</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<p>This creates a lot of lines, starting with <code>SUB</code>, and ending with <code>END</code>. In-between these
+values, we have the representation of each of the instructions (<code>Line</code>, <code>Arc</code>, or <code>Text</code>).
+This compartmentalisation of each class allows very compact code.</p>
+<h3 data-number="3.3.1" id="sensible-defaults"><span class="header-section-number">3.3.1</span> Sensible defaults</h3>
+<p>In the <code>CF2</code> class we have some defaults set with <code>None</code>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CF2:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        dimensions: <span class="bu">tuple</span>[<span class="bu">tuple</span>[<span class="bu">int</span>, <span class="bu">int</span>], <span class="bu">tuple</span>[<span class="bu">int</span>, <span class="bu">int</span>]],</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        parameters: <span class="bu">dict</span> <span class="op">|</span> <span class="va">None</span> <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        scale: <span class="bu">tuple</span>[<span class="bu">int</span>, <span class="bu">int</span>] <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">1</span>),</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        routine: <span class="bu">list</span>[Line, Arc, Text, SubroutineCall] <span class="op">|</span> <span class="va">None</span> <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        subroutines: <span class="bu">list</span>[Subroutine] <span class="op">|</span> <span class="va">None</span> <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    ):</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.dimensions <span class="op">=</span> dimensions</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.parameters <span class="op">=</span> parameters <span class="cf">if</span> parameters <span class="cf">else</span> {}</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.scale <span class="op">=</span> scale</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.routine <span class="op">=</span> routine <span class="cf">if</span> routine <span class="cf">else</span> []</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.subroutines <span class="op">=</span> subroutines <span class="cf">if</span> subroutines <span class="cf">else</span> []</span></code></pre></div>
+<p>The reason for this is, if we set them to be the empty <code>list</code> and the empty <code>dict</code>, then
+on subsequent constructions of the class, they share the same object.</p>
+<p>What this means in reality, is, when you create multiple CF2s (e.g. parsing over a
+folder of CF2s), when you add a subroutine to the first <code>CF2</code>, it’ll be added to all
+<code>CF2</code>s.</p>
+<blockquote>
+<p>I did know this, and I still fell into this trap and had to bugfix my way out!</p>
+</blockquote>
+<p><a href="https://www.pullrequest.com/blog/python-pitfalls-the-perils-of-using-lists-and-dicts-as-default-arguments/#:~:text=However%2C%20the%20problem%20lies%20with,t%20provide%20an%20item%20list.">This article</a>
+covers this issue in much greater detail than I could.
+To me, this highlights the importance of reading around your language / knowledge area.
+I read about this ‘quirk’ of Python for the first time probably about 5 years ago,
+and whilst I still fell into the trap, it was a much quicker bugfix knowing this might
+be an issue rather than discovering it for myself.</p>
+<h1 data-number="4" id="conclusion"><span class="header-section-number">4</span> Conclusion</h1>
+<p>This was a fun little weekend project, the <code>__repr__</code> felt like the cleanest piece of
+code that I did. Moving forward I’ll add functionality for some of the stuff in the
+specification I’ve missed (e.g. scaling and text size). I’ll also probably improve the
+interface for updating the CF2s, adding in functionality for adding and amending
+subroutines.</p>
+    </section>
+</article>
+
+        </main>
+
+        <footer>
+            © 2023, James Green
+        </footer>
+    </body>
+</html>

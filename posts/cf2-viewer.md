@@ -278,6 +278,13 @@ folder of CF2s), when you add a subroutine to the first `CF2`, it'll be added to
 
 > I did know this, and I still fell into this trap and had to bugfix my way out!
 
+[This article](https://www.pullrequest.com/blog/python-pitfalls-the-perils-of-using-lists-and-dicts-as-default-arguments/#:~:text=However%2C%20the%20problem%20lies%20with,t%20provide%20an%20item%20list.)
+covers this issue in much greater detail than I could.
+To me, this highlights the importance of reading around your language / knowledge area.
+I read about this 'quirk' of Python for the first time probably about 5 years ago,
+and whilst I still fell into the trap, it was a much quicker bugfix knowing this might 
+be an issue rather than discovering it for myself.
+
 # Conclusion
 This was a fun little weekend project, the `__repr__` felt like the cleanest piece of 
 code that I did. Moving forward I'll add functionality for some of the stuff in the 
