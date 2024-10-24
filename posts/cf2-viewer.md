@@ -225,6 +225,7 @@ The  line width is set based upon the pointage defined for each instruction.
 ## Writing CF2s
 If we add to the CF2, or amend any of the existing geometry, we want to be able to 
 write the new CF2 to a file for further use.
+
 ### `__repr__`
 This is the key functionality, if we give every class a sensible `__repr__`, namely the
 representation of a line in the CF2, then, to output to CF2, all we do is write the 

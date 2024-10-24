@@ -39,7 +39,7 @@
 
             </li>
             <li>
-                c9cc7b0 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                dbfa580 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"></path>
 </svg>
 
@@ -79,7 +79,7 @@
 
             </li>
             <li>
-                c9cc7b0 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                dbfa580 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"/>
 </svg>
 
@@ -271,9 +271,9 @@ to set one’s own colours via the command line. We have a very simple <code>dic
 <p>The line width is set based upon the pointage defined for each instruction.</p>
 <h2 data-number="3.3" id="writing-cf2s"><span class="header-section-number">3.3</span> Writing CF2s</h2>
 <p>If we add to the CF2, or amend any of the existing geometry, we want to be able to
-write the new CF2 to a file for further use.
-### <code>__repr__</code>
-This is the key functionality, if we give every class a sensible <code>__repr__</code>, namely the
+write the new CF2 to a file for further use.</p>
+<h3 data-number="3.3.1" id="repr__"><span class="header-section-number">3.3.1</span> <code>__repr__</code></h3>
+<p>This is the key functionality, if we give every class a sensible <code>__repr__</code>, namely the
 representation of a line in the CF2, then, to output to CF2, all we do is write the
 <code>__repr__</code> to each class in the correct order.</p>
 <p>For example, the <code>__repr__</code> of an <code>Arc</code> is:</p>
@@ -290,7 +290,7 @@ Let’s look at a <code>Subroutine</code>:</p>
 <p>This creates a lot of lines, starting with <code>SUB</code>, and ending with <code>END</code>. In-between these
 values, we have the representation of each of the instructions (<code>Line</code>, <code>Arc</code>, or <code>Text</code>).
 This compartmentalisation of each class allows very compact code.</p>
-<h3 data-number="3.3.1" id="sensible-defaults"><span class="header-section-number">3.3.1</span> Sensible defaults</h3>
+<h3 data-number="3.3.2" id="sensible-defaults"><span class="header-section-number">3.3.2</span> Sensible defaults</h3>
 <p>In the <code>CF2</code> class we have some defaults set with <code>None</code>:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CF2:</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(</span>
