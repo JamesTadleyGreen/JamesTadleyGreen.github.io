@@ -6,6 +6,7 @@ tags: maths,algorithms,haskell
 # Motivation
 
 We covered off the basics of counting in the last section, and ended on a question:
+
 > Can we count objects without using a store that is $\mathcal{O}(n)$?
 
 The answer, surprisingly, is yes! But, we have to make some sacrifices:
@@ -41,7 +42,7 @@ in $A$ and $B$ respectively.
 Let's prove the above claims. We claim without proof that sorting a list is 
 [$\mathcal{O}(n\log n)$](https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture7.pdf).
 The first part comes from this fact, sorting $A$ takes $a\log\alpha$.
-For the second part, we iterate over $B$, this is $\mathcal{O}(b). For each of
+For the second part, we iterate over $B$, this is $\mathcal{O}(b)$. For each of
 these items, we have to find it in $A$. To do this we perform binary search;
 this involves splitting the array repeatedly in half and searching if our target
 is above or below this value. [This article](../../posts/the_last_algorithms_course/2-search.html)
@@ -49,3 +50,41 @@ goes into more detail. Thus, we 'only' have to do $\log_2 b$ 'jumps'. So,
 the total complexity is $b\log b$ as claimed.
 
 ### Strategy 2
+
+# Proofs
+## The probabilistic model
+
+First a definition, 
+
+> Let $\mathcal{B}$ denote the set of inifinite binary strings.
+
+Alternatively, instead of binary strings we claim to be able to consider real 
+numbers over the interval $[0,1]$.
+
+To prove the above claim, we need to show there is a bijection between the 
+two sets (as there isn't any structure to preserve). To show this, we lean
+on another theorem, [Schröder–Bernstein theorem](https://en.wikipedia.org/wiki/Schr%C3%B6der%E2%80%93Bernstein_theorem),
+given without proof. Now there's two things to prove, but hopefully they're
+easier to prove. One direction is trivial, to show there is an injection
+from $\mathcal{B}$ to $[0,1]$; we take a given string and calculate
+
+$$\sum_{i=1}^{\infty} 2^{-i}B_i$$
+
+where $B_i$ is the $i^{\text{th}}$ bit of the string. This is clearly
+in the range $[0,1]$ and the limits make sense.
+
+To show the converse is only marginally more difficult, take any $x\in[0,1]$.
+Now compute its binary representation, to do this we take the limit of the 
+below behaviour. _We won't prove this converges, or is unique, just take my
+word for it._
+
+For each $i$ as above, compute $X_i = x_0 + x_1 + \dots + x_i$, where
+$x_j$ is either $0$ or $2^{-j}$. Simply work out if adding the $2^{-j}$
+will take us over the target.
+
+For example, consider $0.1875$ both $0.5$ and $0.25$ take us over the target.
+So we start with $0.125 + 0.0625$ and we've our target.
+
+Now take $0.\bar{3}$ we skip $0.5$, add $0.25$, skip $0.125$, add $0.0625$, and so on.
+Thus the binary string is $0101010\dots$.
+
