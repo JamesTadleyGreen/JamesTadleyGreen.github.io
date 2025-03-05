@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Part VII: Functional Patterns - James Green</title>
+        <link rel="stylesheet" href="../../css/variables.css" />
+        <link rel="stylesheet" href="../../css/default.css" />
+        <link rel="stylesheet" href="../../css/syntax.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../../">James Tadley Green</a>
+            </div>
+            <nav>
+                <a href="../../">Home</a>
+                <a href="../../about.html">About</a>
+                <a href="../../posts.html">Posts</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <h1 class="title">Part VII: Functional Patterns</h1>
+            <section class="header">
+    <ol class="post-info">
+        
+            <li>
+                Last updated 2024-08-27 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"></path>
+</svg>
+
+            </li>
+            <li>
+                11 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+
+            </li>
+            <li>
+                069d9b0 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"></path>
+</svg>
+
+            </li>
+            <li>
+               #<a class="tag" href="../../tags/haskell.html">haskell</a> #<a class="tag" href="../../tags/polymorphic.html">polymorphic</a> #<a class="tag" href="../../tags/patterns.html">patterns</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"></path>
+</svg>
+
+            </li>
+        
+    </ol>
+</section>
+
+            <link rel="stylesheet" href="../../css/toc.css" />
+<table class="toc">
+    <tbody>
+    
+        
+            <tr>
+                <td><a href="../../posts/haskell-programming-from-first-principles/10-chapter.html">10</a></td>
+                <td><a href="../../posts/haskell-programming-from-first-principles/10-chapter.html">Part X: Folding Lists</a></td>
+            </tr>
+        
+    
+        
+            <tr>
+                <td><a href="../../posts/haskell-programming-from-first-principles/11-chapter.html">11</a></td>
+                <td><a href="../../posts/haskell-programming-from-first-principles/11-chapter.html">Part XI: Algebraic Datatypes</a></td>
+            </tr>
+        
+    
+        
+            <tr>
+                <td><a href="../../posts/haskell-programming-from-first-principles/12-chapter.html">12</a></td>
+                <td><a href="../../posts/haskell-programming-from-first-principles/12-chapter.html">Part XII: Signaling Adversity</a></td>
+            </tr>
+        
+    
+        
+            <tr>
+                <td><a href="../../posts/haskell-programming-from-first-principles/3-chapter.html">3</a></td>
+                <td><a href="../../posts/haskell-programming-from-first-principles/3-chapter.html">Part III: Strings</a></td>
+            </tr>
+        
+    
+        
+            <tr>
+                <td><a href="../../posts/haskell-programming-from-first-principles/4-chapter.html">4</a></td>
+                <td><a href="../../posts/haskell-programming-from-first-principles/4-chapter.html">Part IV: Basic Datatypes</a></td>
+            </tr>
+        
+    
+        
+            <tr>
+                <td><a href="../../posts/haskell-programming-from-first-principles/5-chapter.html">5</a></td>
+                <td><a href="../../posts/haskell-programming-from-first-principles/5-chapter.html">Part V: Types</a></td>
+            </tr>
+        
+    
+        
+            <tr>
+                <td><a href="../../posts/haskell-programming-from-first-principles/6-chapter.html">6</a></td>
+                <td><a href="../../posts/haskell-programming-from-first-principles/6-chapter.html">Part VI: Typeclasses</a></td>
+            </tr>
+        
+    
+        
+            <tr>
+                <td><a href="../../posts/haskell-programming-from-first-principles/7-chapter.html">7</a></td>
+                <td><a href="../../posts/haskell-programming-from-first-principles/7-chapter.html">Part VII: Functional Patterns</a></td>
+            </tr>
+        
+    
+        
+            <tr class="active-row">
+                <td><a href="../../posts/haskell-programming-from-first-principles/8-chapter.html">8</a></td>
+                <td><a href="../../posts/haskell-programming-from-first-principles/8-chapter.html">Part VII: Functional Patterns</a></td>
+            </tr>
+        
+    
+        
+            <tr>
+                <td><a href="../../posts/haskell-programming-from-first-principles/9-chapter.html">9</a></td>
+                <td><a href="../../posts/haskell-programming-from-first-principles/9-chapter.html">Part IX: Lists</a></td>
+            </tr>
+        
+    
+    </tbody>
+</table>
+
+<link rel="stylesheet" href="../../css/post.css" />
+<link rel="stylesheet" href="../../css/JetBrains-Mono.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<article>
+    <!-- <section class="header">
+    <ol class="post-info">
+        
+            <li>
+                Last updated 2024-08-27 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"/>
+</svg>
+
+            </li>
+            <li>
+                7 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+</svg>
+
+            </li>
+            <li>
+                069d9b0 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"/>
+</svg>
+
+            </li>
+            <li>
+               #<a class="tag" href="/tags/haskell.html">haskell</a> #<a class="tag" href="/tags/polymorphic.html">polymorphic</a> #<a class="tag" href="/tags/patterns.html">patterns</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"/>
+</svg>
+
+            </li>
+        
+    </ol>
+</section>
+ -->
+    <section>
+        <h1 data-number="1" id="chapter-exercises"><span class="header-section-number">1</span> Chapter Exercises</h1>
+<ol type="1">
+<li><ol start="4" type="a">
+<li></li>
+</ol></li>
+<li><ol start="2" type="a">
+<li></li>
+</ol></li>
+<li><ol start="4" type="a">
+<li></li>
+</ol></li>
+<li><ol start="2" type="a">
+<li></li>
+</ol></li>
+</ol>
+<h1 data-number="2" id="reviewing-currying"><span class="header-section-number">2</span> Reviewing Currying</h1>
+<ol type="1">
+<li><code>"woops mrow woohoo!"</code></li>
+<li><code>"1 mrow haha"</code></li>
+<li><code>"woops mrow 2 mrow haha"</code></li>
+<li>Okay I’m bored now</li>
+</ol>
+<h1 data-number="3" id="recursion"><span class="header-section-number">3</span> Recursion</h1>
+<ol type="1">
+<li><div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dividedBy <span class="dv">15</span> <span class="dv">2</span> <span class="ot">=</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    go <span class="dv">15</span> <span class="dv">2</span> <span class="dv">0</span>  <span class="ot">=</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    go <span class="dv">13</span> <span class="dv">2</span> <span class="dv">1</span>  <span class="ot">=</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    go <span class="dv">11</span> <span class="dv">2</span> <span class="dv">2</span>  <span class="ot">=</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    go <span class="dv">9</span>  <span class="dv">2</span> <span class="dv">3</span>  <span class="ot">=</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    go <span class="dv">7</span>  <span class="dv">2</span> <span class="dv">4</span>  <span class="ot">=</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    go <span class="dv">5</span>  <span class="dv">2</span> <span class="dv">5</span>  <span class="ot">=</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    go <span class="dv">3</span>  <span class="dv">2</span> <span class="dv">6</span>  <span class="ot">=</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    go <span class="dv">1</span>  <span class="dv">2</span> <span class="dv">7</span>  <span class="ot">=</span> (<span class="dv">7</span>, <span class="dv">1</span>)</span></code></pre></div></li>
+<li><div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ot">cumSum ::</span> (<span class="dt">Eq</span> a, <span class="dt">Num</span> a) <span class="ot">=&gt;</span> a <span class="ot">-&gt;</span> a</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>cumSum <span class="dv">0</span> <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>cumSum n <span class="ot">=</span> n <span class="op">+</span> cumSum (n <span class="op">-</span> <span class="dv">1</span>)</span></code></pre></div></li>
+<li><div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ot">stupidProduct ::</span> (<span class="dt">Integral</span> a) <span class="ot">=&gt;</span> a <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> a</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>stupidProduct <span class="dv">0</span> _ <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>stupidProduct a b <span class="ot">=</span> b <span class="op">+</span> stupidProduct (a <span class="op">-</span> <span class="dv">1</span>) b</span></code></pre></div></li>
+</ol>
+<h1 data-number="4" id="fixing-dividedby"><span class="header-section-number">4</span> Fixing <code>dividedBy</code></h1>
+<div class="sourceCode" id="cb4" data-startFrom="7"><pre class="sourceCode numberSource numberLines haskell"><code class="sourceCode haskell" style="counter-reset: source-line 6;"><span id="cb4-7"><a href="#cb4-7"></a><span class="kw">data</span> <span class="dt">DividedResult</span> <span class="ot">=</span> <span class="dt">Result</span> <span class="dt">Integer</span> <span class="op">|</span> <span class="dt">DividedByZero</span> <span class="kw">deriving</span> (<span class="dt">Show</span>)</span>
+<span id="cb4-8"><a href="#cb4-8"></a></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="ot">dividedBy ::</span> (<span class="dt">Integral</span> a) <span class="ot">=&gt;</span> a <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">DividedResult</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>dividedBy _ <span class="dv">0</span> <span class="ot">=</span> <span class="dt">DividedByZero</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>dividedBy num denom <span class="ot">=</span> <span class="dt">Result</span> (go num denom <span class="dv">0</span>)</span>
+<span id="cb4-12"><a href="#cb4-12"></a>  <span class="kw">where</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a>    go n d count</span>
+<span id="cb4-14"><a href="#cb4-14"></a>      <span class="op">|</span> <span class="fu">abs</span> n <span class="op">&lt;</span> <span class="fu">abs</span> d <span class="ot">=</span> count</span>
+<span id="cb4-15"><a href="#cb4-15"></a>      <span class="op">|</span> <span class="fu">abs</span> (n <span class="op">+</span> d) <span class="op">==</span> <span class="fu">abs</span> (n) <span class="op">+</span> <span class="fu">abs</span> (d) <span class="ot">=</span> go (n <span class="op">-</span> d) d (count <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb4-16"><a href="#cb4-16"></a>      <span class="op">|</span> <span class="fu">otherwise</span> <span class="ot">=</span> go (n <span class="op">+</span> d) d (count <span class="op">-</span> <span class="dv">1</span>)</span></code></pre></div>
+<h1 data-number="5" id="mccarthy-91-function"><span class="header-section-number">5</span> McCarthy 91 function</h1>
+<div class="sourceCode" id="cb5" data-startFrom="20"><pre class="sourceCode numberSource numberLines haskell"><code class="sourceCode haskell" style="counter-reset: source-line 19;"><span id="cb5-20"><a href="#cb5-20"></a><span class="ot">mc91 ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a>mc91 n</span>
+<span id="cb5-22"><a href="#cb5-22"></a>  <span class="op">|</span> n <span class="op">&gt;</span> <span class="dv">100</span> <span class="ot">=</span> n <span class="op">-</span> <span class="dv">10</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a>  <span class="op">|</span> <span class="fu">otherwise</span> <span class="ot">=</span> mc91 (mc91 (n <span class="op">+</span> <span class="dv">11</span>))</span></code></pre></div>
+<h1 data-number="6" id="numbers-into-words"><span class="header-section-number">6</span> Numbers into words</h1>
+<div class="sourceCode" id="cb6" data-startFrom="28"><pre class="sourceCode numberSource numberLines haskell"><code class="sourceCode haskell" style="counter-reset: source-line 27;"><span id="cb6-28"><a href="#cb6-28"></a></span>
+<span id="cb6-29"><a href="#cb6-29"></a><span class="ot">digitToWord ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">String</span></span>
+<span id="cb6-30"><a href="#cb6-30"></a>digitToWord n</span>
+<span id="cb6-31"><a href="#cb6-31"></a>  <span class="op">|</span> n <span class="op">==</span> <span class="dv">0</span> <span class="ot">=</span> <span class="st">&quot;zero&quot;</span></span>
+<span id="cb6-32"><a href="#cb6-32"></a>  <span class="op">|</span> n <span class="op">==</span> <span class="dv">1</span> <span class="ot">=</span> <span class="st">&quot;one&quot;</span></span>
+<span id="cb6-33"><a href="#cb6-33"></a>  <span class="op">|</span> n <span class="op">==</span> <span class="dv">2</span> <span class="ot">=</span> <span class="st">&quot;two&quot;</span></span>
+<span id="cb6-34"><a href="#cb6-34"></a>  <span class="op">|</span> n <span class="op">==</span> <span class="dv">3</span> <span class="ot">=</span> <span class="st">&quot;three&quot;</span></span>
+<span id="cb6-35"><a href="#cb6-35"></a>  <span class="op">|</span> n <span class="op">==</span> <span class="dv">4</span> <span class="ot">=</span> <span class="st">&quot;four&quot;</span></span>
+<span id="cb6-36"><a href="#cb6-36"></a>  <span class="op">|</span> n <span class="op">==</span> <span class="dv">5</span> <span class="ot">=</span> <span class="st">&quot;five&quot;</span></span>
+<span id="cb6-37"><a href="#cb6-37"></a>  <span class="op">|</span> n <span class="op">==</span> <span class="dv">6</span> <span class="ot">=</span> <span class="st">&quot;six&quot;</span></span>
+<span id="cb6-38"><a href="#cb6-38"></a>  <span class="op">|</span> n <span class="op">==</span> <span class="dv">7</span> <span class="ot">=</span> <span class="st">&quot;seven&quot;</span></span>
+<span id="cb6-39"><a href="#cb6-39"></a>  <span class="op">|</span> n <span class="op">==</span> <span class="dv">8</span> <span class="ot">=</span> <span class="st">&quot;eight&quot;</span></span>
+<span id="cb6-40"><a href="#cb6-40"></a>  <span class="op">|</span> n <span class="op">==</span> <span class="dv">9</span> <span class="ot">=</span> <span class="st">&quot;nine&quot;</span></span>
+<span id="cb6-41"><a href="#cb6-41"></a></span>
+<span id="cb6-42"><a href="#cb6-42"></a><span class="ot">digits ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> [<span class="dt">Int</span>]</span>
+<span id="cb6-43"><a href="#cb6-43"></a>digits <span class="dv">0</span> <span class="ot">=</span> []</span>
+<span id="cb6-44"><a href="#cb6-44"></a>digits n <span class="ot">=</span> n <span class="ot">`mod`</span> <span class="dv">10</span> <span class="op">:</span> digits (n <span class="ot">`div`</span> <span class="dv">10</span>)</span>
+<span id="cb6-45"><a href="#cb6-45"></a></span>
+<span id="cb6-46"><a href="#cb6-46"></a><span class="ot">wordNumber ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">String</span></span>
+<span id="cb6-47"><a href="#cb6-47"></a>wordNumber n <span class="ot">=</span> <span class="fu">concat</span> <span class="op">$</span> intersperse <span class="st">&quot;-&quot;</span> <span class="op">$</span> <span class="fu">map</span> digitToWord <span class="op">$</span> <span class="fu">reverse</span> <span class="op">$</span> digits n</span></code></pre></div>
+    </section>
+</article>
+
+
+        </main>
+
+        <footer>
+            © 2023, James Green
+        </footer>
+    </body>
+</html>

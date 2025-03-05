@@ -3,7 +3,7 @@ title: "Day I: Trebuchet?!"
 tags: AOC,haskell
 ---
 
-# Trebuchet?!
+# [Trebuchet?!](https://adventofcode.com/2023/day/1)
 
 Compared to last year, this was a harder start. The crux of this problem was to parse a
 string and filter out the first and last 'number'.

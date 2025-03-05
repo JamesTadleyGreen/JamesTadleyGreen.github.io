@@ -45,7 +45,7 @@ codeInclude snippets =
 codeBlockFromDiv :: Map Text (Int, Text) -> Block -> Block
 codeBlockFromDiv snippets div@(Div (_, _, kvs) _) =
   let snippet = lookup "name" kvs >>= (`M.lookup` snippets)
-      classes = "numberLines" : maybeToList (lookup "lexer" kvs)
+      classes = maybeToList (lookup "lexer" kvs)
    in case snippet of
         Nothing -> Null
         Just (lineNumber, content) ->
