@@ -193,9 +193,9 @@
 <h1 data-number="2" id="lets-write-code"><span class="header-section-number">2</span> Let’s write code</h1>
 <ol type="1">
 <li><ol type="a">
-<li><div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">   getDigit ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>   getDigit <span class="dv">0</span> n <span class="ot">=</span> n <span class="ot">`mod`</span> <span class="dv">10</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>   getDigit i n <span class="ot">=</span> getDigit (i<span class="op">-</span><span class="dv">1</span>) <span class="op">$</span> n <span class="ot">`div`</span> <span class="dv">10</span></span>
+<li><div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">getDigit ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>getDigit <span class="dv">0</span> n <span class="ot">=</span> n <span class="ot">`mod`</span> <span class="dv">10</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>getDigit i n <span class="ot">=</span> getDigit (i<span class="op">-</span><span class="dv">1</span>) <span class="op">$</span> n <span class="ot">`div`</span> <span class="dv">10</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>tensDigit <span class="ot">=</span> getDigit <span class="dv">1</span></span></code></pre></div></li>
 <li><p>Yes, ’cause I didn’t use it</p></li>
