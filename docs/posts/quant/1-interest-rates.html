@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Interest Rates - James Green</title>
+        <link rel="stylesheet" href="../../css/variables.css" />
+        <link rel="stylesheet" href="../../css/default.css" />
+        <link rel="stylesheet" href="../../css/syntax.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../../">James Tadley Green</a>
+            </div>
+            <nav>
+                <a href="../../">Home</a>
+                <a href="../../about.html">About</a>
+                <a href="../../posts.html">Posts</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <h1 class="title">Interest Rates</h1>
+            <section class="header">
+    <ol class="post-info">
+        
+            <li>
+                Last updated  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"></path>
+</svg>
+
+            </li>
+            <li>
+                17 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+
+            </li>
+            <li>
+                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"></path>
+</svg>
+
+            </li>
+            <li>
+               #<a class="tag" href="../../tags/quant.html">quant</a> #<a class="tag" href="../../tags/interest.html">interest</a> #<a class="tag" href="../../tags/stochastic.html">stochastic</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"></path>
+</svg>
+
+            </li>
+        
+    </ol>
+</section>
+
+            <link rel="stylesheet" href="../../css/toc.css" />
+<table class="toc">
+    <tbody>
+    
+        
+            <tr class="active-row">
+                <td><a href="../../posts/quant/1-interest-rates.html">1</a></td>
+                <td><a href="../../posts/quant/1-interest-rates.html">Interest Rates</a></td>
+            </tr>
+        
+    
+    </tbody>
+</table>
+
+<link rel="stylesheet" href="../../css/post.css" />
+<link rel="stylesheet" href="../../css/JetBrains-Mono.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<article>
+    <!-- <section class="header">
+    <ol class="post-info">
+        
+            <li>
+                Last updated  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"/>
+</svg>
+
+            </li>
+            <li>
+                14 minute read <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+</svg>
+
+            </li>
+            <li>
+                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 0a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3"/>
+</svg>
+
+            </li>
+            <li>
+               #<a class="tag" href="/tags/quant.html">quant</a> #<a class="tag" href="/tags/interest.html">interest</a> #<a class="tag" href="/tags/stochastic.html">stochastic</a> <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"/>
+</svg>
+
+            </li>
+        
+    </ol>
+</section>
+ -->
+    <section>
+        <h1 data-number="1" id="a-brief-aside"><span class="header-section-number">1</span> A brief aside</h1>
+<p>I had fully intended, and actually initially started this project in
+<a href="https://gleam.run/">Gleam</a>, sadly I couldn’t get past some versioning issues.
+As the focus of this project was more on the implementaiton / learnings,
+I decided to move into something more familier, Haskell.</p>
+<h1 data-number="2" id="the-basics"><span class="header-section-number">2</span> The basics</h1>
+<p>Interest rates can be modeled as stochastic random processes of the form:
+<span class="math display">\[\mathrm{d}x = \theta (\mu - x_t) \mathrm{d}t + \sigma \mathrm{d}W\]</span></p>
+<p>But, what does the above <em>mean</em>?</p>
+<h2 data-number="2.1" id="randomnes"><span class="header-section-number">2.1</span> Randomnes</h2>
+<p>First, <span class="math inline">\(\mathrm{d}W\)</span> is a <a href="https://en.wikipedia.org/wiki/Wiener_process">Weiner process</a>,
+this is where the randomness comes from. What this is exactly is a random walk,
+any time step is independent of the others. In our code this will manifest
+itself as the normal distribution. Specifically, the difference between
+any two steps in the one dimensional is a normal distribution of the form:
+<span class="math display">\[W_{t_2 - t_1} = W_{t_2} - W_{t_1} \sim N(0, t_2 - t_1)\]</span></p>
+<p>Okay, that’s the randomness in the system accounted for, what’s the remainder?
+What’s the order to our chaos?</p>
+<h2 data-number="2.2" id="mean-reversion"><span class="header-section-number">2.2</span> Mean Reversion</h2>
+<p>We expect interest rates to sit at some value across the longer term.
+For example:</p>
+<ul>
+<li>The <a href="https://www.bankofengland.co.uk/boeapps/database/Bank-Rate.asp">UK’s interest rates</a>
+sat in the 0%-1% range from 2009 to 2022, (although higher now to combat inflation).</li>
+<li>The <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_real_long_term">US’s interest rates</a>
+have a long term averge of about 4.5%</li>
+</ul>
+<p>But, our above walk has a mean of zero. How do we move this up to the long term expected
+value? The most basic approach would be to add the long term mean to our walk. This would
+give an expected value of the long term mean, however, the walk could easily divert from
+this value in quite an extreme manner. In reality, it’s likely the result would sit around
+this long-term average, with some deviation in either direction.</p>
+<p>So we use some form of mean reversion. The idea being, if we’re above the mean, the term will
+drive us lower, and if we’re below the mean, the term will drive us up.</p>
+<p>That’s what this <span class="math inline">\(\theta (\mu - x_t)\)</span> term corresponds to:</p>
+<ul>
+<li>If the prior term is greater than the mean then <span class="math inline">\(\mu - x_t\)</span> is negative, pushing us down.</li>
+<li>The converse pulls us up.</li>
+</ul>
+<p>So what does <span class="math inline">\(\theta\)</span> correspond to? This is the mean reversion rate. It corresponds to how
+fast we want teh mean reversion to occour, higer numbers tie the interest rate closer to the
+long-term mean, lower numbers give more weight to the random walk.</p>
+<h1 data-number="3" id="stochastic"><span class="header-section-number">3</span> Stochastic</h1>
+<p>So, the randomness in the walk gives us different ‘paths’ for our interest rate on a given
+simulation. Why do we want this, can’t we just have a central set of assumptions?
+The benefit to using stocastic processes is the universe of results they create. This is
+the concept of a funnel chart, at time <span class="math inline">\(t=0\)</span>, everything is determined. We know exactly
+what the interest rate is, at the next timestep, it’s pretty determined that there will
+be minor movement, at time <span class="math inline">\(t=100\)</span> the universe of values will be a lot greater.</p>
+<p>By having a stochastic process, we implicitly embed our certainty of events based on this
+‘funnel’.</p>
+<h1 data-number="4" id="ornstein-uhlenbeck"><span class="header-section-number">4</span> Ornstein-Uhlenbeck</h1>
+<p>An <a href="https://en.wikipedia.org/wiki/Ornstein%E2%80%93Uhlenbeck_process">Ornstein–Uhlenbeck process</a>
+describes exactly what we were talking about above, it is defined as:
+<span class="math display">\[\mathrm{d}x = \theta (\mu - x_t) \mathrm{d}t + \sigma \mathrm{d}W\]</span></p>
+<p>Let’s write our fist code to describe this process, as it seems like a natural abstraction
+we’d want to take advantage of.</p>
+<p>First, let’s create a <code>data</code> for the O-U process, from our above formula we can see how to
+dissect our variables.</p>
+<iframe frameborder="0" scrolling="no" style="width:100%; height:184px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2FJamesTadleyGreen%2Fquant-haskell%2Fblob%2F54f7030dc274c4a94fd77acb39e9e045fce6c1c3%2Fsrc%2FMyLib.hs%23L10-L14&amp;style=tomorrow-night-blue&amp;type=code&amp;showBorder=on&amp;showLineNumbers=on&amp;showFileMeta=on&amp;showFullPath=on&amp;showCopy=on">
+</iframe>
+<p>Now let’s define a function that given a ‘step’ function, creates random variables and
+sequentially applies the ‘step’ function to create each <span class="math inline">\(x_t\)</span>.</p>
+<iframe frameborder="0" scrolling="no" style="width:100%; height:163px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2FJamesTadleyGreen%2Fquant-haskell%2Fblob%2F54f7030dc274c4a94fd77acb39e9e045fce6c1c3%2Fsrc%2FMyLib.hs%23L17-L20&amp;style=tomorrow-night-blue&amp;type=code&amp;showBorder=on&amp;showLineNumbers=on&amp;showFileMeta=on&amp;showFullPath=on&amp;showCopy=on">
+</iframe>
+<p>Let’s discuss some types quickly, the initial <code>x</code> is a float, this is simple. The ‘step’
+function takes two floats and returns a float. This corresponds to the last step,
+the random variable <span class="math inline">\(N(0,1)\)</span>, and outputting the next step. The number of steps
+to generate is obviously an <code>Int</code>, and the most complex part is the return variable
+<code>RVar [Float]</code>. This represents a list of random vairables each of type <code>Float</code>, we won’t
+cover any more in detail what this means here.</p>
+<p>Line <code>19</code> tells us we’re creating <code>number_of_steps</code> random <span class="math inline">\(N(0,1)\)</span> variables.</p>
+<p>We’ll treat line <code>20</code> in two parts. Firstly the <code>pure</code>, this lifts our result to the
+required monad, in our case <code>RVar</code>, this function has the type signature
+<code>[Float] -&gt; RVar [Float]</code> in our case. The second part is the repeated application of
+our function <code>f</code> to our prior value. Here we use <code>scanl</code> to calculate the intermidiate
+values.</p>
+<h1 data-number="5" id="vascik"><span class="header-section-number">5</span> Vascik</h1>
+<p>Let’s create a specific model, starting off simply let’s write the <a href="https://en.wikipedia.org/wiki/Vasicek_model">Vascik</a>
+model;
+<span class="math display">\[\mathrm{d}x = \theta (\mu - x_t) \mathrm{d}t + \sigma \mathrm{d}W\]</span></p>
+<p>This is exactly the example we had at the beginning.</p>
+<p>Again, let’s split this into two parts;</p>
+<ul>
+<li>A meta-function for applying the O-U function.</li>
+<li>A step function which tells us how to get to <span class="math inline">\(x_{t+1}\)</span> from <span class="math inline">\(x_t\)</span>.</li>
+</ul>
+<h2 data-number="5.1" id="meta-function"><span class="header-section-number">5.1</span> Meta function</h2>
+<iframe frameborder="0" scrolling="no" style="width:100%; height:121px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2FJamesTadleyGreen%2Fquant-haskell%2Fblob%2F54f7030dc274c4a94fd77acb39e9e045fce6c1c3%2Fsrc%2FMyLib.hs%23L29-L30&amp;style=tomorrow-night-blue&amp;type=code&amp;showBorder=on&amp;showLineNumbers=on&amp;showFileMeta=on&amp;showFullPath=on&amp;showCopy=on">
+</iframe>
+<p>Super simple, just an application of <code>ornsteinUhlenbeck</code>, applying our <code>vasicekStep</code>
+function.</p>
+<h2 data-number="5.2" id="step-function"><span class="header-section-number">5.2</span> Step function</h2>
+<iframe frameborder="0" scrolling="no" style="width:100%; height:184px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2FJamesTadleyGreen%2Fquant-haskell%2Fblob%2F54f7030dc274c4a94fd77acb39e9e045fce6c1c3%2Fsrc%2FMyLib.hs%23L22-L26&amp;style=tomorrow-night-blue&amp;type=code&amp;showBorder=on&amp;showLineNumbers=on&amp;showFileMeta=on&amp;showFullPath=on&amp;showCopy=on">
+</iframe>
+<p>This marries exactly up to the function above, with a bit more of a breakdown
+into what the consitiuant parts represent. For clarity, let’s break the above
+equation down in the same way as the code.</p>
+<p><span class="math display">\[
+\begin{aligned}
+    x_{n+1} &amp;= x_n &amp;+&amp; \mathrm{d}x\\
+    \implies x_{n+1} &amp;= x_n &amp;+&amp; \theta (\mu - x_t) \mathrm{d}t &amp;+&amp; \sigma \mathrm{d}W\\
+    \implies x_{n+1} &amp;= x_n &amp;+&amp; \text{drift} &amp;+&amp; \text{noise}\\
+\end{aligned}
+\]</span></p>
+<h1 data-number="6" id="cir"><span class="header-section-number">6</span> CIR</h1>
+<h2 data-number="6.1" id="negative-interest-rates"><span class="header-section-number">6.1</span> Negative interest rates</h2>
+<p>The ‘issue’ with the <a href="#Vascik">Vascik model</a> is that it allows negative interest rates.
+The general consensus is that interest rates rarely go negative, although
+<a href="https://en.wikipedia.org/wiki/Negative_interest_on_excess_reserves">recent history</a> says otherwise.</p>
+<p>So how can we floor our model so that we don’t have to think about this situation.
+The most basic iteration of this would be to not allow <span class="math inline">\(x\)</span> to move negative.
+But, this would create some off, flatlining charts, so how can we do better?
+Let’s manipulate the noise, by using the square root function.</p>
+<p>If we have the function become ‘less noisy’ around 0, then we won’t have negative
+interest rates. So, how can we reduce the noise as our <span class="math inline">\(x\)</span>s approach 0, we can
+multiply by a factor that shrinks as we get closer to 0. But, what function do
+we choose? A few come to mind, <span class="math inline">\(\frac{1}{x}\)</span>, <span class="math inline">\(\frac{1}{x^2}\)</span>, <span class="math inline">\(\sqrt{x}\)</span>.
+I haven’t fully understood the motivation for using the factor, <span class="math inline">\(\sigma\sqrt{r_t}\)</span>.
+I know it’s related to the standard deviation, but for now we’ll take this as
+gospel truth.</p>
+<p>The idea of the above is, once we get close to nil, the randomness of the Weiner
+process is dampened by this factor.</p>
+<h2 data-number="6.2" id="code"><span class="header-section-number">6.2</span> Code</h2>
+<iframe frameborder="0" scrolling="no" style="width:100%; height:184px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2FJamesTadleyGreen%2Fquant-haskell%2Fblob%2F54f7030dc274c4a94fd77acb39e9e045fce6c1c3%2Fsrc%2FMyLib.hs%23L32-L36&amp;style=tomorrow-night-blue&amp;type=code&amp;showBorder=on&amp;showLineNumbers=on&amp;showFileMeta=on&amp;showFullPath=on&amp;showCopy=on">
+</iframe>
+<h1 data-number="7" id="chen"><span class="header-section-number">7</span> Chen</h1>
+<p>A brief recap, we’ve introduced a faily simplistic model in <a href="#Vascik">Vascik</a> and then
+built upon this with factors effecting the Weiner process. There are several
+other models we could create in a similar vein by multiplying the drift or
+randomness by either constants or dependent factors. Alternatively, we
+could look at making the variables <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> in the Vascik model dependent
+on time, this results in the <a href="https://en.wikipedia.org/wiki/Hull%E2%80%93White_model">Hull-White</a> model</p>
+<p>Instead, we’ll go one step further, let’s make each of our variables, <span class="math inline">\(\theta\)</span>
+and <span class="math inline">\(\sigma\)</span> <a href="#ornstein-uhlenbeck">Ornstein-Uhlenbeck</a> processes.</p>
+<p>What does this look like?</p>
+<p>We have our overall function, in a similar style to what we’ve seen before.
+<span class="math display">\[\mathrm{d}r = \kappa (\theta_t - r_t) \mathrm{d}t + \sqrt{\sigma_t} \sqrt{r_t} \mathrm{d}W_1\]</span></p>
+<blockquote>
+<p>Note: We have the <span class="math inline">\(\sqrt{r_t}\)</span> factor, mirroring <a href="#cir">CIR</a>.</p>
+</blockquote>
+<p>Now, what do <span class="math inline">\(\theta_t\)</span> and <span class="math inline">\(\sigma_t\)</span> correspond to?
+<span class="math display">\[
+    \begin{align*}
+        \mathrm{d}\theta &amp;= \nu (\zeta - \theta_t) \mathrm{d}t + \alpha \sqrt{\theta_t} \mathrm{d}W_2\\
+        \mathrm{d}\sigma &amp;= \mu (\beta - \sigma_t) \mathrm{d}t + \eta \sqrt{\sigma_t} \mathrm{d}W_3\\
+    \end{align*}
+    \]</span></p>
+<p>As we expected they’re a sudo-<a href="#cir">CIR</a> type of equation.</p>
+<p>Putting this into code, we again have the step function.</p>
+<iframe frameborder="0" scrolling="no" style="width:100%; height:184px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2FJamesTadleyGreen%2Fquant-haskell%2Fblob%2F54f7030dc274c4a94fd77acb39e9e045fce6c1c3%2Fsrc%2FMyLib.hs%23L42-L46&amp;style=tomorrow-night-blue&amp;type=code&amp;showBorder=on&amp;showLineNumbers=on&amp;showFileMeta=on&amp;showFullPath=on&amp;showCopy=on">
+</iframe>
+<p>The above is standard, but the below is new.</p>
+<iframe frameborder="0" scrolling="no" style="width:100%; height:205px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2FJamesTadleyGreen%2Fquant-haskell%2Fblob%2F54f7030dc274c4a94fd77acb39e9e045fce6c1c3%2Fsrc%2FMyLib.hs%23L49-L54&amp;style=tomorrow-night-blue&amp;type=code&amp;showBorder=on&amp;showLineNumbers=on&amp;showFileMeta=on&amp;showFullPath=on&amp;showCopy=on">
+</iframe>
+<p>By <code>zip</code>ing together the three random values we can</p>
+    </section>
+</article>
+
+
+        </main>
+
+        <footer>
+            © 2023, James Green
+        </footer>
+    </body>
+</html>
